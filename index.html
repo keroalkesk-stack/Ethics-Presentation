@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Meters & Ethics | Presentation Hub & Student Souvenir</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- HTML2Canvas Library for 100% Pixel-Perfect DOM Snapshot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        midnight: '#090f1d',
+                        cardbg: '#111b2e',
+                        festiveRed: '#e11d48',
+                        festiveGold: '#f59e0b',
+                        festiveGreen: '#10b981',
+                        polimiBlue: '#002B49'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Base Resets to Prevent Unstyled Flash / Large Image Explosion */
+        body {
+            background-color: #090f1d;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Strict logo fallback dimensions */
+        .header-logo-img {
+            max-width: 40px !important;
+            max-height: 40px !important;
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        /* Atmospheric Rich Visual Background Patterns for Themes */
+        .theme-bg-cozy-red {
+            background: radial-gradient(circle at 50% 20%, #800a14 0%, #4a0409 50%, #1a0103 100%);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.18) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(225, 29, 72, 0.25) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fbbf24' fill-opacity='0.06'%3E%3Cpath d='M20 10 L25 25 L40 25 L28 34 L32 48 L20 40 L8 48 L12 34 L0 25 L15 25 Z'/%3E%3Ccircle cx='80' cy='30' r='4'/%3E%3Ccircle cx='70' cy='75' r='5'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .theme-bg-winter-blue {
+            background: radial-gradient(circle at 50% 30%, #034b75 0%, #022440 60%, #010f1e 100%);
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.25) 0%, transparent 45%),
+                radial-gradient(circle at 10% 80%, rgba(254, 240, 138, 0.18) 0%, transparent 45%),
+                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M60 10 L68 28 L88 28 L72 40 L78 60 L60 48 L42 60 L48 40 L32 28 L52 28 Z'/%3E%3Ccircle cx='20' cy='90' r='3'/%3E%3Ccircle cx='100' cy='30' r='4'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .theme-bg-emerald-pine {
+            background: radial-gradient(circle at 50% 20%, #065f46 0%, #02382b 60%, #011812 100%);
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(52, 211, 153, 0.22) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.18) 0%, transparent 40%),
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2334d399' fill-opacity='0.05'%3E%3Cpath d='M50 10 L70 50 L30 50 Z M50 35 L75 80 L25 80 Z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .theme-bg-imperial-gold {
+            background: radial-gradient(circle at 50% 30%, #5c3d06 0%, #362202 60%, #170d00 100%);
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(254, 240, 138, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 20% 90%, rgba(245, 158, 11, 0.22) 0%, transparent 45%),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='3' fill='%23fef08a' fill-opacity='0.12'/%3E%3Ccircle cx='15' cy='20' r='2' fill='%23fbbf24' fill-opacity='0.15'/%3E%3C/svg%3E");
+        }
+
+        /* Ambient Radial Background Gradients */
+        .ambient-bg {
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(225, 29, 72, 0.14) 0%, transparent 40%),
+                radial-gradient(circle at 85% 25%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 80%, rgba(245, 158, 11, 0.10) 0%, transparent 45%);
+        }
+
+        /* Glassmorphism Card Effect */
+        .glass-card {
+            background: rgba(17, 27, 46, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Gentle Falling Snowflakes */
+        .snowflake {
+            position: fixed;
+            top: -10%;
+            color: rgba(255, 255, 255, 0.25);
+            user-select: none;
+            pointer-events: none;
+            z-index: 1;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090f1d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="ambient-bg min-h-screen relative selection:bg-rose-500 selection:text-white">
+
+    <!-- Decorative Falling Snow Container -->
+    <div id="snow-container" aria-hidden="true"></div>
+
+    <!-- Floating Toast Notifications -->
+    <div id="toast-container" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm w-full pointer-events-none px-4 sm:px-0"></div>
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-40 glass-card border-b border-white/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+            <a href="#" class="flex items-center gap-3 group">
+                <!-- University Logo Container with Fallback Icon & Inline Constraints -->
+                <div class="w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0">
+                    <img src="logo.png" alt="University Logo" class="header-logo-img" onError="this.onerror=null; this.src='https://img.icons8.com/color/96/graduation-cap.png';">
+                </div>
+                <div>
+                    <span class="font-bold text-base sm:text-lg tracking-tight text-white block leading-tight">Smart Meters & Ethics</span>
+                    <span class="text-[11px] text-amber-400 font-medium tracking-wider uppercase">Power Systems • Politecnico di Milano</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1.5 bg-slate-900/70 p-1.5 rounded-2xl border border-white/5">
+                <a href="#gift-section" class="px-4 py-2 rounded-xl text-sm font-semibold bg-rose-600/20 text-rose-300 border border-rose-500/30 hover:bg-rose-600/30 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-gift text-rose-400"></i> Your Souvenir
+                </a>
+                <a href="#presentation-section" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                    Presentation Deck
+                </a>
+                <a href="#report-section" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                    Report Summary
+                </a>
+                <a href="#references-section" class="px-4 py-2 rounded-xl text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">
+                    References
+                </a>
+            </nav>
+
+            <!-- Mobile Quick Jump Button -->
+            <a href="#gift-section" class="md:hidden px-3.5 py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-rose-600 to-amber-600 text-white shadow-md flex items-center gap-1.5">
+                <i class="fa-solid fa-gift"></i> Get Souvenir
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 pt-10 pb-12 sm:pt-16 sm:pb-16 px-4 sm:px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs sm:text-sm font-medium mb-6">
+                <i class="fa-solid fa-snowflake animate-spin" style="animation-duration: 10s;"></i>
+                <span>Power Systems Presentation: Ethical Issues & Social Implications</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-5">
+                Ethical Intelligence in <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-amber-300 via-rose-400 to-emerald-400 bg-clip-text text-transparent">Smart Meters & Smart Grids</span>
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+                Welcome! Browse our presentation slides, read our ethical summary, explore academic references, and claim your <strong class="text-white">Personalized Engineering Holiday Souvenir Card</strong> created for each attendee! 🎄⚡
+            </p>
+
+            <!-- 4 Quick Action Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-3xl mx-auto">
+                <a href="#gift-section" class="glass-card p-4 rounded-2xl hover:border-rose-500/50 hover:-translate-y-1 transition-all group text-center">
+                    <div class="w-11 h-11 mx-auto mb-2.5 rounded-xl bg-rose-500/20 text-rose-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div class="font-semibold text-sm text-white">Holiday Souvenir</div>
+                    <div class="text-[11px] text-rose-300 mt-0.5">Personal Keepsake</div>
+                </a>
+
+                <a href="#presentation-section" class="glass-card p-4 rounded-2xl hover:border-amber-500/50 hover:-translate-y-1 transition-all group text-center">
+                    <div class="w-11 h-11 mx-auto mb-2.5 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-display"></i>
+                    </div>
+                    <div class="font-semibold text-sm text-white">Presentation</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Interactive Slides</div>
+                </a>
+
+                <a href="#report-section" class="glass-card p-4 rounded-2xl hover:border-emerald-500/50 hover:-translate-y-1 transition-all group text-center">
+                    <div class="w-11 h-11 mx-auto mb-2.5 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div class="font-semibold text-sm text-white">Report</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Key Takeaways</div>
+                </a>
+
+                <a href="#references-section" class="glass-card p-4 rounded-2xl hover:border-sky-500/50 hover:-translate-y-1 transition-all group text-center">
+                    <div class="w-11 h-11 mx-auto mb-2.5 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <div class="font-semibold text-sm text-white">References</div>
+                    <div class="text-[11px] text-slate-400 mt-0.5">Academic Sources</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 space-y-20 pb-24">
+
+        <!-- ========================================================= -->
+        <!-- SECTION 1: CUSTOM PERSONALIZED STUDENT HOLIDAY CARD       -->
+        <!-- ========================================================= -->
+        <section id="gift-section" class="scroll-mt-24">
+            <div class="glass-card rounded-3xl p-6 sm:p-10 border border-rose-500/30 relative overflow-hidden">
+                <!-- Decorative Ambient Glow -->
+                <div class="absolute -top-24 -right-24 w-72 h-72 bg-rose-500/15 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                <!-- Section Header -->
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-white/10 pb-6">
+                    <div>
+                        <div class="inline-flex items-center gap-2 text-rose-400 text-xs font-bold uppercase tracking-widest mb-2">
+                            <i class="fa-solid fa-gift"></i> Student Keepsake Studio
+                        </div>
+                        <h2 class="text-2xl sm:text-4xl font-bold text-white">Claim Your Personalized Souvenir 🎅🎄</h2>
+                        <p class="text-slate-300 text-sm sm:text-base mt-1.5 max-w-2xl">
+                            Enter your name, department, gender, and your personal motto—we will craft your official <strong class="text-white">Politecnico di Milano Holiday Badge & Wishes Card</strong> to download and share!
+                        </p>
+                    </div>
+                    <div class="shrink-0">
+                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold">
+                            <i class="fa-solid fa-award"></i> Official Presentation Souvenir
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Two-Column Form & Card Preview Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+                    <!-- LEFT COLUMN: INPUT FORM (5 Cols) -->
+                    <form id="souvenir-form" class="lg:col-span-5 space-y-5 bg-slate-900/70 p-5 sm:p-6 rounded-2xl border border-white/10 shadow-xl">
+                        
+                        <!-- 1. Full Name -->
+                        <div>
+                            <label for="student-name" class="block text-sm font-semibold text-white mb-1.5">
+                                1. Your Full Name <span class="text-rose-400">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                                <input type="text" id="student-name" required placeholder="e.g., Kerolos Emad / Fady Remon"
+                                    class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-rose-400 focus:ring-1 focus:ring-rose-400 transition-all">
+                            </div>
+                        </div>
+
+                        <!-- 2. Gender Selection (Switches Santa Character Image) -->
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2">
+                                2. Character (Gender) <span class="text-rose-400">*</span>
+                            </label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="gender" value="male" class="peer sr-only" checked>
+                                    <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700 peer-checked:border-amber-400 peer-checked:bg-amber-500/20 text-center transition-all flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-mars text-sky-400"></i>
+                                        <span class="text-sm font-medium text-white">Santa (Male)</span>
+                                    </div>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="gender" value="female" class="peer sr-only">
+                                    <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700 peer-checked:border-amber-400 peer-checked:bg-amber-500/20 text-center transition-all flex items-center justify-center gap-2">
+                                        <i class="fa-solid fa-venus text-pink-400"></i>
+                                        <span class="text-sm font-medium text-white">Mrs. Claus (Female)</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 3. Department -->
+                        <div>
+                            <label for="student-dept" class="block text-sm font-semibold text-white mb-1.5">
+                                3. Specialization / Department <span class="text-rose-400">*</span>
+                            </label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </span>
+                                <input type="text" id="student-dept" required placeholder="e.g., Electrical Engineering"
+                                    class="w-full pl-10 pr-4 py-3 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-rose-400 focus:ring-1 focus:ring-rose-400 transition-all">
+                            </div>
+                            <!-- Quick Department Chips -->
+                            <div class="flex flex-wrap gap-1.5 mt-2">
+                                <button type="button" class="dept-chip px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-300 transition-colors" data-dept="Electrical Engineering">Electrical</button>
+                                <button type="button" class="dept-chip px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-300 transition-colors" data-dept="Energy Engineering">Energy</button>
+                                <button type="button" class="dept-chip px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-300 transition-colors" data-dept="Computer Engineering">Computer</button>
+                                <button type="button" class="dept-chip px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-300 transition-colors" data-dept="Automation Engineering">Automation</button>
+                            </div>
+                        </div>
+
+                        <!-- 4. Select Card Visual Theme -->
+                        <div>
+                            <label class="block text-sm font-semibold text-white mb-2">
+                                4. Select Card Theme (Rich Atmospheric Styles) 🎨
+                            </label>
+                            <div class="grid grid-cols-2 gap-2.5">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="card-theme" value="cozy-red" class="peer sr-only" checked>
+                                    <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700 peer-checked:border-amber-400 peer-checked:ring-2 peer-checked:ring-rose-500/50 text-xs font-medium text-rose-300 transition-all flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-red-600 to-rose-950 border border-amber-400/50 shrink-0 flex items-center justify-center text-[10px]">🎁</div>
+                                        <div>
+                                            <span class="block text-white font-bold">Festive Jubilee</span>
+                                            <span class="text-[10px] text-rose-300/80">Warm Red & Baubles</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="card-theme" value="winter-blue" class="peer sr-only">
+                                    <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700 peer-checked:border-amber-400 peer-checked:ring-2 peer-checked:ring-sky-500/50 text-xs font-medium text-sky-300 transition-all flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-sky-600 to-slate-950 border border-sky-300/50 shrink-0 flex items-center justify-center text-[10px]">❄️</div>
+                                        <div>
+                                            <span class="block text-white font-bold">Winter Wonderland</span>
+                                            <span class="text-[10px] text-sky-300/80">Snowy Pines & Aurora</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="card-theme" value="emerald-pine" class="peer sr-only">
+                                    <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700 peer-checked:border-amber-400 peer-checked:ring-2 peer-checked:ring-emerald-500/50 text-xs font-medium text-emerald-300 transition-all flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-emerald-600 to-emerald-950 border border-emerald-400/50 shrink-0 flex items-center justify-center text-[10px]">🌲</div>
+                                        <div>
+                                            <span class="block text-white font-bold">Cozy Hearth</span>
+                                            <span class="text-[10px] text-emerald-300/80">Emerald Pine & Warmth</span>
+                                        </div>
+                                    </div>
+                                </label>
+
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="card-theme" value="imperial-gold" class="peer sr-only">
+                                    <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-700 peer-checked:border-amber-400 peer-checked:ring-2 peer-checked:ring-amber-500/50 text-xs font-medium text-amber-300 transition-all flex items-center gap-2">
+                                        <div class="w-6 h-6 rounded-lg bg-gradient-to-br from-amber-500 to-amber-950 border border-amber-300/50 shrink-0 flex items-center justify-center text-[10px]">✨</div>
+                                        <div>
+                                            <span class="block text-white font-bold">Imperial Glow</span>
+                                            <span class="text-[10px] text-amber-300/80">Golden Bokeh & Luxury</span>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 5. Assigned Holiday Greeting (1 of 25 Unique Greetings) -->
+                        <div>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <label class="block text-sm font-semibold text-white">
+                                    5. Your Assigned Christmas Greeting 🎅
+                                </label>
+                                <button type="button" id="shuffle-wish-btn" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-medium flex items-center gap-1.5 transition-colors">
+                                    <i class="fa-solid fa-shuffle text-[11px]"></i> Shuffle Greeting
+                                </button>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-950/90 border border-amber-500/30 text-slate-200 text-xs sm:text-sm italic leading-relaxed relative">
+                                <i class="fa-solid fa-quote-left text-amber-400/40 text-lg mr-1.5"></i>
+                                <span id="assigned-wish-display">Loading your assigned wish...</span>
+                            </div>
+                        </div>
+
+                        <!-- 6. Separate Custom Personal Quote / Verse -->
+                        <div>
+                            <label for="student-motto" class="block text-sm font-semibold text-white mb-1.5">
+                                6. Your Personal Motto, Verse, or Favorite Quote (Optional) 📜
+                            </label>
+                            <textarea id="student-motto" rows="2" placeholder="e.g., 'The light shines in the darkness' or 'Engineer with passion and purpose...'"
+                                class="w-full px-4 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-rose-400 focus:ring-1 focus:ring-rose-400 transition-all resize-none"></textarea>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <button type="submit" id="generate-card-btn"
+                            class="w-full py-3.5 px-6 rounded-xl font-bold text-white text-sm sm:text-base bg-gradient-to-r from-rose-600 via-red-600 to-amber-600 hover:from-rose-500 hover:to-amber-500 shadow-lg shadow-rose-600/25 active:scale-[0.99] transition-all flex items-center justify-center gap-2.5">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>Create My Holiday Souvenir</span>
+                        </button>
+                    </form>
+
+                    <!-- RIGHT COLUMN: GENERATED SOUVENIR CARD PREVIEW (7 Cols) -->
+                    <div class="lg:col-span-7">
+                        
+                        <!-- State A: Empty Placeholder -->
+                        <div id="card-placeholder" class="bg-slate-900/50 border border-white/10 rounded-3xl p-8 text-center min-h-[480px] flex flex-col items-center justify-center">
+                            <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-rose-500/20 to-amber-500/20 border border-rose-500/30 flex items-center justify-center text-4xl mb-4 shadow-inner">
+                                🎅
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Your Keepsake Card Appears Here</h3>
+                            <p class="text-slate-400 text-sm max-w-md mx-auto leading-relaxed mb-6">
+                                Enter your details & favorite motto on the left to generate your spacious, cozy Christmas souvenir card with custom themes!
+                            </p>
+                            <div class="flex flex-wrap justify-center gap-3 text-xs text-slate-300">
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-950/60 border border-white/5 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-palette text-rose-400"></i> 4 Cozy Themes
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-950/60 border border-white/5 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-quote-left text-amber-400"></i> Custom Quotes / Verses
+                                </span>
+                                <span class="px-3 py-1.5 rounded-xl bg-slate-950/60 border border-white/5 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-expand text-emerald-400"></i> Spacious HD Export
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- State B: Generated Live Souvenir Card -->
+                        <div id="card-result-wrap" class="hidden space-y-4">
+                            
+                            <!-- Festive Souvenir Card Block -->
+                            <div id="festive-card" class="relative rounded-3xl p-5 sm:p-7 border-2 shadow-2xl overflow-hidden transition-all duration-500 theme-bg-cozy-red">
+                                
+                                <!-- Top Header Banner: Logo + Badge ID -->
+                                <div class="flex items-center justify-between gap-2 text-xs font-semibold tracking-wider border-b border-white/10 pb-4 mb-5">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-9 h-9 rounded-xl bg-white p-0.5 flex items-center justify-center shrink-0 shadow-md">
+                                            <img src="logo.png" alt="University Logo" class="header-logo-img" onError="this.onerror=null; this.src='https://img.icons8.com/color/96/graduation-cap.png';">
+                                        </div>
+                                        <div>
+                                            <span class="block text-white font-bold leading-none tracking-wide">POLITECNICO DI MILANO</span>
+                                            <span class="text-[10px] text-amber-300 font-normal">Department of Energy & Electrical Engineering</span>
+                                        </div>
+                                    </div>
+                                    <span id="card-badge-id" class="px-3 py-1 rounded-full bg-black/40 text-amber-300 font-mono text-[11px] border border-amber-400/40 shrink-0 shadow-sm">
+                                        POLIMI-2024-8942
+                                    </span>
+                                </div>
+
+                                <!-- Center Content: Clean Artwork Box -->
+                                <div class="flex flex-col items-center text-center space-y-4 my-1">
+                                    
+                                    <!-- Full Artwork Display Box with Crisp Tight Gold Border (No Side Gaps) -->
+                                    <div class="relative shrink-0 w-full max-w-[320px] sm:max-w-[340px] mx-auto rounded-2xl overflow-hidden border-4 border-amber-400/90 shadow-2xl bg-transparent group">
+                                        <img id="card-santa-img" src="santa_male.jpg" alt="Engineering Santa Artwork" 
+                                             class="w-full h-auto object-cover block"
+                                             onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1543589077-47d51606c1bf?w=600&auto=format&fit=crop&q=80';">
+                                    </div>
+
+                                    <!-- Student Name & Dept -->
+                                    <div class="pt-1">
+                                        <h3 id="card-student-name" class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight drop-shadow-md">Student Name</h3>
+                                        <p id="card-student-dept" class="text-xs sm:text-sm text-amber-300 font-semibold tracking-wider uppercase mt-1">Electrical Engineering</p>
+                                    </div>
+                                    
+                                    <!-- Section A: Assigned Holiday Greeting Box (Overflow Safe) -->
+                                    <div class="w-full bg-black/45 border border-amber-400/35 rounded-2xl p-4 sm:p-5 relative shadow-inner text-left overflow-hidden">
+                                        <div class="text-[11px] uppercase tracking-widest text-amber-400 font-bold mb-1.5 flex items-center gap-1.5">
+                                            <i class="fa-solid fa-gift"></i> Festive Christmas Greeting
+                                        </div>
+                                        <p id="card-wish-text" class="text-slate-100 text-xs sm:text-sm leading-relaxed sm:leading-loose italic font-serif break-words">
+                                            "Wishing you a joyful holiday season filled with bright energy, warmth, and ethical excellence!"
+                                        </p>
+                                    </div>
+
+                                    <!-- Section B: Personal Motto / Verse (Visible if provided, Overflow Safe) -->
+                                    <div id="card-motto-wrap" class="w-full bg-white/10 border border-white/15 rounded-2xl p-4 sm:p-5 relative shadow-inner text-left overflow-hidden hidden">
+                                        <div class="text-[11px] uppercase tracking-widest text-rose-300 font-bold mb-1.5 flex items-center gap-1.5">
+                                            <i class="fa-solid fa-scroll"></i> Personal Motto / Verse
+                                        </div>
+                                        <p id="card-motto-text" class="text-white text-xs sm:text-sm leading-relaxed sm:leading-loose font-serif italic break-words">
+                                            ""
+                                        </p>
+                                    </div>
+
+                                    <div class="pt-2 flex items-center justify-between w-full text-[11px] text-slate-300 border-t border-white/10">
+                                        <span>⚡ Smart Meters Presentation Souvenir</span>
+                                        <span class="text-amber-300 font-serif italic">Merry Christmas 🎅</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Download Action Bar -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <button type="button" id="download-card-btn"
+                                    class="py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2 transition-all">
+                                    <i class="fa-solid fa-download"></i> Download Theme Card (HD 1200x1600)
+                                </button>
+                                <button type="button" id="copy-wish-btn"
+                                    class="py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-white/10 flex items-center justify-center gap-2 transition-all">
+                                    <i class="fa-regular fa-copy"></i> Copy Greeting & Motto
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- SECTION 2: PRESENTATION DECK VIEWER                       -->
+        <!-- ========================================================= -->
+        <section id="presentation-section" class="scroll-mt-24">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-amber-400 text-xs font-bold uppercase tracking-widest block mb-1">
+                        <i class="fa-solid fa-person-chalkboard mr-1"></i> Course Material
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Interactive Slide Deck Viewer</h2>
+                    <p class="text-slate-400 text-sm mt-1">Key slides from our Smart Meters & Engineering Ethics presentation.</p>
+                </div>
+            </div>
+
+            <!-- Interactive Slide Stage -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/10">
+                <div class="bg-gradient-to-br from-slate-900 via-slate-900 to-slate-950 border border-white/10 rounded-2xl p-6 sm:p-10 min-h-[300px] flex flex-col justify-between relative">
+                    <div class="flex items-center justify-between text-xs text-slate-400 mb-4">
+                        <span id="slide-tag" class="px-3 py-1 rounded-full bg-amber-500/15 text-amber-300 font-semibold">Slide 1 of 6</span>
+                        <span>Power Systems • Politecnico di Milano</span>
+                    </div>
+
+                    <div id="slide-content" class="my-auto py-2">
+                        <!-- Dynamically populated by JS -->
+                    </div>
+
+                    <div class="flex items-center justify-between pt-6 mt-6 border-t border-white/10">
+                        <button type="button" id="prev-slide-btn"
+                            class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-sm font-medium disabled:opacity-40 transition-all flex items-center gap-2">
+                            <i class="fa-solid fa-arrow-left"></i> Previous
+                        </button>
+
+                        <div id="slide-dots" class="flex items-center gap-2"></div>
+
+                        <button type="button" id="next-slide-btn"
+                            class="px-4 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-sm font-bold disabled:opacity-40 transition-all flex items-center gap-2">
+                            Next <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- SECTION 3: REPORT SUMMARY                                 -->
+        <!-- ========================================================= -->
+        <section id="report-section" class="scroll-mt-24">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+                <div>
+                    <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest block mb-1">
+                        <i class="fa-solid fa-file-contract mr-1"></i> Executive Briefing
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Presentation Report Summary</h2>
+                    <p class="text-slate-400 text-sm mt-1">Core ethical dilemmas, technical insights, and responsible engineering takeaways.</p>
+                </div>
+                <button type="button" id="copy-report-btn"
+                    class="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-sm font-semibold flex items-center gap-2 transition-all">
+                    <i class="fa-regular fa-copy"></i> Copy Summary
+                </button>
+            </div>
+
+            <div id="report-content" class="glass-card rounded-3xl p-6 sm:p-8 space-y-6">
+                <div class="p-5 rounded-2xl bg-slate-900/70 border border-white/5">
+                    <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-circle-info text-emerald-400"></i> Executive Overview
+                    </h3>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Smart meters are a foundational component of modern smart grids, enabling two-way communication between utilities and consumers to optimize energy distribution, integrate renewable sources, and reduce operational costs. However, high-frequency energy telemetry introduces critical ethical responsibilities regarding user privacy, cybersecurity, equity, and informed consent.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-rose-500/30 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-rose-500/15 text-rose-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1.5">1. Household Privacy & Data Granularity</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Non-Intrusive Load Monitoring (NILM) algorithms can infer exact appliance usage and home occupancy from high-frequency metering data. Ethical deployment demands data minimization and privacy-by-design.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-amber-500/30 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1.5">2. Grid Cybersecurity & Infrastructure Safety</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Millions of networked meter endpoints expand the attack surface. Remote disconnect capabilities must be secured with multi-factor authentication, end-to-end encryption, and fail-safe designs.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-emerald-500/30 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1.5">3. Equity & Time-of-Use Dynamic Tariffs</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Dynamic peak pricing models can disproportionately penalize low-income or inflexible households unable to shift energy consumption. Protections are needed to ensure social equity.
+                        </p>
+                    </div>
+
+                    <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-sky-500/30 transition-colors">
+                        <div class="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center text-lg mb-3">
+                            <i class="fa-solid fa-handshake"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-base mb-1.5">4. Transparency & Informed Consent</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Consumers deserve transparent disclosures regarding data sharing with third parties, as well as simple opt-in/opt-out governance mechanisms for non-essential telemetry.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================================= -->
+        <!-- SECTION 4: REFERENCES                                     -->
+        <!-- ========================================================= -->
+        <section id="references-section" class="scroll-mt-24">
+            <div class="mb-6">
+                <span class="text-sky-400 text-xs font-bold uppercase tracking-widest block mb-1">
+                    <i class="fa-solid fa-book-open mr-1"></i> Academic & Industry Sources
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-white">References</h2>
+                <p class="text-slate-400 text-sm mt-1">Literature and standards referenced in our Smart Meters & Ethics research.</p>
+            </div>
+
+            <div id="references-list" class="space-y-3">
+                <!-- Populated via JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/10 bg-slate-950/90 py-8 px-4 text-center text-xs text-slate-400">
+        <div class="flex items-center justify-center gap-2 mb-2">
+            <img src="logo.png" alt="PoliMi" class="w-6 h-6 object-contain header-logo-img" onError="this.style.display='none'">
+            <span class="font-semibold text-slate-200">Politecnico di Milano — Power Systems Course</span>
+        </div>
+        <p class="mb-1">Smart Meters: Ethical Issues & Social Implications Presentation Hub</p>
+        <p class="text-slate-500">Crafted with holiday cheer for all presentation attendees 🎄⚡</p>
+    </footer>
+
+    <!-- Offscreen Canvas for High-Resolution Card Download -->
+    <canvas id="card-export-canvas" class="hidden"></canvas>
+
+    <!-- APPLICATION JAVASCRIPT -->
+    <script>
+        // -------------------------------------------------------------
+        // 1. DATA (Presentation Slides, References & 25 Unique Wishes)
+        // -------------------------------------------------------------
+        const presentationSlides = [
+            {
+                title: "Smart Meters & Engineering Ethics",
+                subtitle: "Balancing Grid Modernization with Privacy, Security & Social Equity",
+                bullets: [
+                    "Introduction to Advanced Metering Infrastructure (AMI) and two-way energy telemetry.",
+                    "Why technical efficiency alone is insufficient without ethical stewardship.",
+                    "Overview of key stakeholders: energy consumers, utilities, grid operators, and society."
+                ]
+            },
+            {
+                title: "How Smart Meters Work",
+                subtitle: "Real-Time Energy Telemetry & Grid Automation",
+                bullets: [
+                    "Records electricity usage at fine intervals (every 15 to 60 minutes).",
+                    "Enables automated billing, instant outage detection, and demand-response programs.",
+                    "Supports distributed renewable energy integration across modern smart grids."
+                ]
+            },
+            {
+                title: "Ethical Issue I: Privacy & Surveillance",
+                subtitle: "When Power Signatures Reveal Household Habits",
+                bullets: [
+                    "Non-Intrusive Load Monitoring (NILM) can identify specific home appliances.",
+                    "Occupancy patterns reveal when residents are home, sleeping, or traveling.",
+                    "Ethical principle: Enforce data minimization, noise addition, and local edge processing."
+                ]
+            },
+            {
+                title: "Ethical Issue II: Cybersecurity & Public Safety",
+                subtitle: "Protecting Critical Energy Infrastructure",
+                bullets: [
+                    "Millions of connected smart meters increase the systemic cyber attack surface.",
+                    "Remote disconnect switches can cause severe harm if unauthorized access occurs.",
+                    "Ethical duty: Robust end-to-end encryption, secure firmware, and physical safeguards."
+                ]
+            },
+            {
+                title: "Ethical Issue III: Equity & Time-of-Use Tariffs",
+                subtitle: "Fair Access & Protecting Vulnerable Consumers",
+                bullets: [
+                    "Dynamic Time-of-Use pricing may penalize low-income or shift-working households.",
+                    "Addressing digital literacy barriers and ensuring transparent billing policies.",
+                    "Guaranteeing equitable grid benefits across all socioeconomic communities."
+                ]
+            },
+            {
+                title: "Conclusion & Ethical Recommendations",
+                subtitle: "Engineering a Trustworthy Smart Energy Future",
+                bullets: [
+                    "Embed Privacy-by-Design and Security-by-Default into smart meter architecture.",
+                    "Establish clear regulatory oversight and consumer opt-in/opt-out data protections.",
+                    "Thank you for attending! Claim your custom holiday souvenir card above 🎅"
+                ]
+            }
+        ];
+
+        const referencesData = [
+            {
+                id: "ref-1",
+                tag: "Professional Code",
+                citation: "IEEE. (2020). IEEE Code of Ethics: Upholding public safety, health, welfare, and privacy in technological systems.",
+                note: "Foundational engineering commitment to protect public welfare and disclose system risks."
+            },
+            {
+                id: "ref-2",
+                tag: "Cybersecurity & Privacy",
+                citation: "NIST. (2014). Guidelines for Smart Grid Cybersecurity (NISTIR 7628 Rev. 1). National Institute of Standards and Technology.",
+                note: "Framework for privacy impact assessments and security for Advanced Metering Infrastructure (AMI)."
+            },
+            {
+                id: "ref-3",
+                tag: "Academic Literature",
+                citation: "McDaniel, P., & McLaughlin, S. (2009). Security and Privacy Challenges in the Smart Grid. IEEE Security & Privacy, 7(3), 75–77.",
+                note: "Seminal study analyzing how high-resolution energy data exposes household routines."
+            },
+            {
+                id: "ref-4",
+                tag: "Energy Ethics & Policy",
+                citation: "Milchram, C., Van de Kaa, G., Doorn, N., & Künneke, R. (2018). Moral Values as Factors for Social Acceptance of Smart Grid Technologies. Sustainability, 10(8), 2703.",
+                note: "Examines justice, trust, privacy, and public acceptance in smart grid rollouts."
+            }
+        ];
+
+        // 25 Distinct, High-Quality Christmas & Engineering Greetings
+        const festiveWishes25 = [
+            "May your holiday season be fully charged with joy, peace, and endless success in smart energy innovations!",
+            "Wishing you a bright Christmas filled with high energy, warmth, and ethical excellence in your engineering journey!",
+            "May your future in technology be powered by inspiration, ethical stewardship, and brilliant ideas. Buone Feste!",
+            "Warmest holiday greetings! May your passion for science illuminate new paths toward a sustainable future.",
+            "Wishing you peace, happiness, and an extraordinary New Year filled with scientific breakthroughs and success!",
+            "May the warmth of Christmas light up your heart and power your dreams for the year ahead!",
+            "Sending you bright energy, joyful moments, and festive warmth from Politecnico di Milano!",
+            "May your Christmas be merry, your grid be perfectly balanced, and your energy remain limitlessly positive!",
+            "Wishing you and your loved ones a blessed holiday season full of warmth, laughter, and cozy moments.",
+            "May your dedication to engineering create a brighter, smarter, and more ethical world. Happy Holidays!",
+            "Wishing you a magical Christmas filled with sweet memories, great achievements, and peaceful days!",
+            "May the holiday season bring you renewed energy, clear vision, and joy in every academic endeavor!",
+            "May your life be connected with peace, frequency-synchronized with happiness, and filled with love. Merry Christmas!",
+            "Sending you festive cheer and smart grid warmth from Milan to wherever your journey leads!",
+            "May the holiday spirit bring light to your mind, warmth to your home, and power to your goals!",
+            "Wishing you a season of bright sparks, warm smiles, and ethical stewardship in all you create!",
+            "May your holidays be merry and bright, with zero outages and infinite moments of joy!",
+            "Wishing you a cozy winter season filled with hot cocoa, great company, and inspiring engineering ideas!",
+            "May peace and goodwill be the main power source of your holiday season and upcoming new year!",
+            "Sending festive greetings! May your ethical principles guide your path to engineering greatness.",
+            "Wishing you a delightful Christmas celebration surrounded by family, friends, and holiday magic!",
+            "May your hard work in Power Systems yield abundant success, happiness, and fulfillment!",
+            "Warmest wishes for a festive season that sparkles with joy, harmony, and creative inspiration!",
+            "May your days be merry, your heart be light, and your technological vision change the world!",
+            "Buone Feste! May the magic of Christmas illuminate your dreams and energize your academic future!"
+        ];
+
+        const cardThemeStyles = {
+            "cozy-red": {
+                bgClass: "theme-bg-cozy-red border-amber-400/60 text-white",
+                canvasBg: ["#800a14", "#4a0409", "#1a0103"],
+                accentColor: "#fbbf24",
+                borderColor: "#f59e0b",
+                type: "red"
+            },
+            "winter-blue": {
+                bgClass: "theme-bg-winter-blue border-amber-400/60 text-white",
+                canvasBg: ["#034b75", "#022440", "#010f1e"],
+                accentColor: "#38bdf8",
+                borderColor: "#38bdf8",
+                type: "blue"
+            },
+            "emerald-pine": {
+                bgClass: "theme-bg-emerald-pine border-amber-400/60 text-white",
+                canvasBg: ["#065f46", "#02382b", "#011812"],
+                accentColor: "#34d399",
+                borderColor: "#34d399",
+                type: "green"
+            },
+            "imperial-gold": {
+                bgClass: "theme-bg-imperial-gold border-amber-400/60 text-white",
+                canvasBg: ["#5c3d06", "#362202", "#170d00"],
+                accentColor: "#fef08a",
+                borderColor: "#f59e0b",
+                type: "gold"
+            }
+        };
+
+        let currentSlideIndex = 0;
+        let assignedWishIndex = 0;
+        let generatedCardData = null;
+
+        // Pick initial unique wish
+        assignedWishIndex = Math.floor(Math.random() * festiveWishes25.length);
+
+        // -------------------------------------------------------------
+        // 2. HELPER FUNCTIONS
+        // -------------------------------------------------------------
+        function initSnowflakes() {
+            const container = document.getElementById("snow-container");
+            if (!container) return;
+            const flakes = ["❄", "❅", "❆", "•"];
+            for (let i = 0; i < 22; i++) {
+                const el = document.createElement("span");
+                el.className = "snowflake";
+                el.textContent = flakes[i % flakes.length];
+                el.style.left = `${Math.random() * 100}vw`;
+                el.style.fontSize = `${10 + Math.random() * 12}px`;
+                el.style.animationDuration = `${8 + Math.random() * 12}s`;
+                el.style.animationDelay = `${-Math.random() * 12}s`;
+                container.appendChild(el);
+            }
+        }
+
+        function showToast(message, type = "info") {
+            const container = document.getElementById("toast-container");
+            if (!container) return;
+
+            const styles = {
+                success: "bg-emerald-950/95 border-emerald-500/50 text-emerald-100",
+                error: "bg-rose-950/95 border-rose-500/50 text-rose-100",
+                info: "bg-slate-900/95 border-amber-500/40 text-slate-100"
+            };
+            const icons = {
+                success: "fa-circle-check text-emerald-400",
+                error: "fa-circle-exclamation text-rose-400",
+                info: "fa-circle-info text-amber-400"
+            };
+
+            const toast = document.createElement("div");
+            toast.className = `pointer-events-auto flex items-start gap-3 px-4 py-3 rounded-2xl border shadow-xl backdrop-blur-md text-xs sm:text-sm transition-all duration-300 ${styles[type] || styles.info}`;
+            toast.innerHTML = `
+                <i class="fa-solid ${icons[type] || icons.info} mt-0.5 text-base shrink-0"></i>
+                <span class="leading-snug">${message}</span>
+            `;
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.classList.add("opacity-0", "translate-y-2");
+                setTimeout(() => toast.remove(), 300);
+            }, 4000);
+        }
+
+        function copyToClipboard(text, successMsg = "Copied to clipboard!") {
+            try {
+                const area = document.createElement("textarea");
+                area.value = text;
+                area.style.position = "fixed";
+                area.style.opacity = "0";
+                document.body.appendChild(area);
+                area.select();
+                document.execCommand("copy");
+                document.body.removeChild(area);
+                showToast(successMsg, "success");
+            } catch (_) {
+                showToast("Could not copy automatically.", "error");
+            }
+        }
+
+        function updateAssignedWishDisplay() {
+            const el = document.getElementById("assigned-wish-display");
+            if (el) {
+                el.textContent = `"${festiveWishes25[assignedWishIndex]}"`;
+            }
+        }
+
+        // -------------------------------------------------------------
+        // 3. SLIDES & REFERENCES RENDERERS
+        // -------------------------------------------------------------
+        function renderSlide() {
+            const slide = presentationSlides[currentSlideIndex];
+            document.getElementById("slide-tag").textContent = `Slide ${currentSlideIndex + 1} of ${presentationSlides.length}`;
+
+            const contentEl = document.getElementById("slide-content");
+            contentEl.innerHTML = `
+                <h3 class="text-xl sm:text-3xl font-bold text-white mb-2">${slide.title}</h3>
+                <p class="text-amber-300 text-sm sm:text-base font-medium mb-6">${slide.subtitle}</p>
+                <ul class="space-y-3">
+                    ${slide.bullets.map(b => `
+                        <li class="flex items-start gap-3 text-slate-200 text-sm sm:text-base">
+                            <span class="w-6 h-6 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check"></i>
+                            </span>
+                            <span>${b}</span>
+                        </li>
+                    `).join("")}
+                </ul>
+            `;
+
+            const dotsEl = document.getElementById("slide-dots");
+            dotsEl.innerHTML = presentationSlides.map((_, idx) => `
+                <button type="button" aria-label="Go to slide ${idx + 1}"
+                    class="h-2.5 rounded-full transition-all ${idx === currentSlideIndex ? 'w-7 bg-amber-400' : 'w-2.5 bg-slate-600 hover:bg-slate-500'}"
+                    onclick="goToSlide(${idx})"></button>
+            `).join("");
+
+            document.getElementById("prev-slide-btn").disabled = currentSlideIndex === 0;
+            document.getElementById("next-slide-btn").disabled = currentSlideIndex === presentationSlides.length - 1;
+        }
+
+        function goToSlide(index) {
+            currentSlideIndex = index;
+            renderSlide();
+        }
+
+        function renderReferences() {
+            const listEl = document.getElementById("references-list");
+            listEl.innerHTML = referencesData.map((ref, idx) => `
+                <div class="glass-card rounded-2xl p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:border-sky-500/30 transition-all">
+                    <div class="space-y-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="px-2.5 py-0.5 rounded-md bg-sky-500/15 text-sky-300 text-[11px] font-semibold">${ref.tag}</span>
+                            <span class="text-xs text-slate-500">#${idx + 1}</span>
+                        </div>
+                        <p class="text-sm sm:text-base font-medium text-white">${ref.citation}</p>
+                        <p class="text-xs text-slate-400">${ref.note}</p>
+                    </div>
+                    <button type="button" onclick="copyToClipboard(\`${ref.citation.replace(/"/g, '&quot;')}\`, 'Citation copied!')"
+                        class="self-start sm:self-center shrink-0 px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold border border-white/10 flex items-center gap-1.5 transition-colors">
+                        <i class="fa-regular fa-copy"></i> Copy Citation
+                    </button>
+                </div>
+            `).join("");
+        }
+
+        // -------------------------------------------------------------
+        // 4. HOLIDAY CARD GENERATOR & SPACIOUS CANVAS EXPORTER
+        // -------------------------------------------------------------
+        function generateUniqueBadgeId() {
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
+            return `POLIMI-SMART-${randomNum}`;
+        }
+
+        function applyThemeToCardPreview(themeKey) {
+            const cardEl = document.getElementById("festive-card");
+            const theme = cardThemeStyles[themeKey] || cardThemeStyles["cozy-red"];
+            cardEl.className = `relative rounded-3xl p-6 sm:p-8 border-2 shadow-2xl overflow-hidden transition-all duration-500 ${theme.bgClass}`;
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("student-name").value.trim();
+            const dept = document.getElementById("student-dept").value.trim();
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || "male";
+            const themeKey = document.querySelector('input[name="card-theme"]:checked')?.value || "cozy-red";
+            const personalMotto = document.getElementById("student-motto").value.trim();
+
+            if (!name || !dept) {
+                showToast("Please enter both your name and specialization.", "error");
+                return;
+            }
+
+            const santaImgSrc = gender === "female" ? "santa_female.jpg" : "santa_male.jpg";
+            const badgeId = generateUniqueBadgeId();
+            const assignedWish = festiveWishes25[assignedWishIndex];
+
+            generatedCardData = {
+                name,
+                dept,
+                gender,
+                themeKey,
+                badgeId,
+                wishText: assignedWish,
+                personalMotto,
+                santaImgSrc
+            };
+
+            // Apply Selected Theme to Live Preview Card
+            applyThemeToCardPreview(themeKey);
+
+            // Update DOM Card Elements
+            const cardImgEl = document.getElementById("card-santa-img");
+            cardImgEl.src = santaImgSrc;
+            
+            cardImgEl.onerror = function() {
+                this.onerror = null;
+                this.src = "https://images.unsplash.com/photo-1543589077-47d51606c1bf?w=600&auto=format&fit=crop&q=80";
+            };
+
+            document.getElementById("card-student-name").textContent = name;
+            document.getElementById("card-student-dept").textContent = dept;
+            document.getElementById("card-wish-text").textContent = `"${assignedWish}"`;
+            document.getElementById("card-badge-id").textContent = badgeId;
+
+            // Personal Motto Section visibility
+            const mottoWrap = document.getElementById("card-motto-wrap");
+            const mottoText = document.getElementById("card-motto-text");
+            if (personalMotto) {
+                mottoText.textContent = `"${personalMotto}"`;
+                mottoWrap.classList.remove("hidden");
+            } else {
+                mottoWrap.classList.add("hidden");
+            }
+
+            // Display result wrapper
+            document.getElementById("card-placeholder").classList.add("hidden");
+            document.getElementById("card-result-wrap").classList.remove("hidden");
+
+            showToast(`Card created for ${name}!`, "success");
+
+            if (window.innerWidth < 1024) {
+                document.getElementById("card-result-wrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+        }
+
+        // =========================================================
+        // RICH ATMOSPHERIC CANVAS EXPORTER (DYNAMICALLY THEME MATCHED)
+        // =========================================================
+        function exportHighResCanvasCard() {
+            if (!generatedCardData) return;
+
+            const cardEl = document.getElementById("festive-card");
+            if (!cardEl) return;
+
+            showToast("Generating 100% Pixel-Perfect HD download...", "info");
+
+            // Capture exact DOM snapshot with 3x Ultra-HD resolution scale
+            if (typeof html2canvas === "function") {
+                html2canvas(cardEl, {
+                    scale: 3, // 3x Ultra-HD scale for razor-sharp text & graphics
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: null,
+                    logging: false
+                }).then(canvas => {
+                    const link = document.createElement("a");
+                    const safeName = generatedCardData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "student";
+                    link.download = `polimi-christmas-${safeName}.png`;
+                    link.href = canvas.toDataURL("image/png", 1.0);
+                    link.click();
+                    showToast("Downloaded exact 1:1 HD preview card!", "success");
+                }).catch(err => {
+                    fallbackCanvasExport();
+                });
+            } else {
+                fallbackCanvasExport();
+            }
+        }
+
+        function fallbackCanvasExport() {
+            const canvas = document.getElementById("card-export-canvas");
+            const ctx = canvas.getContext("2d");
+
+            // Generous Canvas Dimensions
+            const W = 1200;
+            const H = 1600;
+            canvas.width = W;
+            canvas.height = H;
+
+            const theme = cardThemeStyles[generatedCardData.themeKey] || cardThemeStyles["cozy-red"];
+
+            // 1. Dynamic Theme Gradient Background (Matches Chosen Theme)
+            const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
+            bgGrad.addColorStop(0, theme.canvasBg[0]);
+            bgGrad.addColorStop(0.5, theme.canvasBg[1]);
+            bgGrad.addColorStop(1, theme.canvasBg[2]);
+            ctx.fillStyle = bgGrad;
+            ctx.fillRect(0, 0, W, H);
+
+            // 2. Rich Atmospheric Theme Artwork (Reindeer, Snowy Pines, Glow)
+            drawThemeAtmosphereArt(ctx, W, H, theme.type);
+
+            // 3. Decorative Outer Frame (Matches Theme Accent Color)
+            ctx.strokeStyle = theme.borderColor;
+            ctx.lineWidth = 10;
+            roundRect(ctx, 45, 45, W - 90, H - 90, 48);
+            ctx.stroke();
+
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
+            ctx.lineWidth = 2.5;
+            roundRect(ctx, 65, 65, W - 130, H - 130, 36);
+            ctx.stroke();
+
+            // Corner Ornaments
+            drawCornerFlourish(ctx, 80, 80, false, theme.borderColor);
+            drawCornerFlourish(ctx, W - 80, 80, true, theme.borderColor);
+
+            // 4. Header: University Logo & Text
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 34px Inter, sans-serif";
+            ctx.textAlign = "left";
+            ctx.fillText("POLITECNICO DI MILANO", 110, 130);
+
+            ctx.fillStyle = theme.accentColor;
+            ctx.font = "500 21px Inter, sans-serif";
+            ctx.fillText("Department of Energy & Power Systems Presentation", 110, 165);
+
+            // Badge ID Pill (Right Aligned)
+            ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
+            roundRect(ctx, W - 350, 105, 240, 54, 27);
+            ctx.fill();
+            ctx.strokeStyle = theme.borderColor;
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            ctx.fillStyle = "#fef08a";
+            ctx.font = "bold 21px monospace";
+            ctx.textAlign = "center";
+            ctx.fillText(generatedCardData.badgeId, W - 230, 140);
+
+            // Header Divider Line
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(110, 200);
+            ctx.lineTo(W - 110, 200);
+            ctx.stroke();
+
+            // 5. Load & Render Full Aspect-Preserved Santa Image Artwork
+            const santaImg = new Image();
+            santaImg.crossOrigin = "anonymous";
+            santaImg.onload = function() {
+                const boxW = 500;
+                const boxH = 500;
+                const centerX = W / 2;
+                const boxY = 225;
+
+                // Container Clip around Artwork
+                ctx.save();
+                roundRect(ctx, centerX - boxW/2, boxY, boxW, boxH, 28);
+                ctx.clip();
+
+                // Draw Image preserving full aspect ratio
+                ctx.drawImage(santaImg, centerX - boxW/2, boxY, boxW, boxH);
+                ctx.restore();
+
+                // Gold Border Ring around Artwork Container
+                ctx.strokeStyle = theme.borderColor;
+                ctx.lineWidth = 8;
+                roundRect(ctx, centerX - boxW/2, boxY, boxW, boxH, 28);
+                ctx.stroke();
+
+                // 6. Student Name & Department
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "bold 56px Georgia, serif";
+                ctx.textAlign = "center";
+                ctx.fillText(generatedCardData.name, centerX, 785);
+
+                ctx.fillStyle = theme.accentColor;
+                ctx.font = "bold 25px Inter, sans-serif";
+                ctx.fillText(generatedCardData.dept.toUpperCase(), centerX, 835);
+
+                // 7. Section A: Assigned Christmas Greeting Box (Overflow Safe)
+                const hasMotto = Boolean(generatedCardData.personalMotto);
+                const wishBoxY = 875;
+                const wishBoxH = hasMotto ? 290 : 480;
+
+                ctx.fillStyle = "rgba(0, 0, 0, 0.50)";
+                roundRect(ctx, 110, wishBoxY, W - 220, wishBoxH, 24);
+                ctx.fill();
+                ctx.strokeStyle = theme.borderColor;
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.fillStyle = theme.accentColor;
+                ctx.font = "bold 20px Inter, sans-serif";
+                ctx.textAlign = "left";
+                ctx.fillText("🎁 FESTIVE CHRISTMAS GREETING", 145, wishBoxY + 45);
+
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "italic 28px Georgia, serif";
+                ctx.textAlign = "center";
+                wrapCanvasText(ctx, `"${generatedCardData.wishText}"`, centerX, wishBoxY + 110, W - 310, 44);
+
+                // 8. Section B: Personal Motto / Verse (If provided)
+                if (hasMotto) {
+                    const mottoBoxY = 1195;
+                    const mottoBoxH = 240;
+
+                    ctx.fillStyle = "rgba(255, 255, 255, 0.10)";
+                    roundRect(ctx, 110, mottoBoxY, W - 220, mottoBoxH, 24);
+                    ctx.fill();
+                    ctx.strokeStyle = "rgba(255, 255, 255, 0.25)";
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+
+                    ctx.fillStyle = "#fda4af";
+                    ctx.font = "bold 20px Inter, sans-serif";
+                    ctx.textAlign = "left";
+                    ctx.fillText("📜 PERSONAL MOTTO / VERSE", 145, mottoBoxY + 45);
+
+                    ctx.fillStyle = "#ffffff";
+                    ctx.font = "italic 26px Georgia, serif";
+                    ctx.textAlign = "center";
+                    wrapCanvasText(ctx, `"${generatedCardData.personalMotto}"`, centerX, mottoBoxY + 110, W - 310, 42);
+                }
+
+                // 9. Footer Banner
+                ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(110, 1475);
+                ctx.lineTo(W - 110, 1475);
+                ctx.stroke();
+
+                ctx.fillStyle = "#cbd5e1";
+                ctx.font = "600 23px Inter, sans-serif";
+                ctx.textAlign = "center";
+                ctx.fillText("⚡ Politecnico di Milano • Smart Meters & Ethics Presentation Souvenir 🎄", centerX, 1520);
+
+                // Trigger Download
+                const link = document.createElement("a");
+                const safeName = generatedCardData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "student";
+                link.download = `polimi-christmas-${safeName}.png`;
+                link.href = canvas.toDataURL("image/png");
+                link.click();
+                showToast("Theme-matched HD Card downloaded!", "success");
+            };
+
+            santaImg.onerror = function() {
+                showToast("Image fallback loaded. Downloading...", "info");
+                santaImg.src = "https://images.unsplash.com/photo-1543589077-47d51606c1bf?w=600&auto=format&fit=crop&q=80";
+            };
+
+            santaImg.src = generatedCardData.santaImgSrc;
+        }
+
+        // Draw Rich Live Atmosphere Background Elements on Canvas (Pines, Reindeer, Snow, Ornaments)
+        function drawThemeAtmosphereArt(ctx, W, H, themeType) {
+            ctx.save();
+            if (themeType === "blue") {
+                // 1. Winter Wonderland: Falling Snowflakes + Snowy Pine Forest + Reindeer Silhouettes
+                ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
+                for (let i = 0; i < 60; i++) {
+                    const sx = (Math.sin(i * 123) * 0.5 + 0.5) * W;
+                    const sy = (Math.cos(i * 456) * 0.5 + 0.5) * H;
+                    const sr = (i % 4) + 2;
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                // Snowy Pine Trees along bottom
+                ctx.fillStyle = "rgba(2, 36, 64, 0.65)";
+                drawPineTree(ctx, 140, H - 70, 180, 260);
+                drawPineTree(ctx, W - 140, H - 70, 180, 260);
+                drawPineTree(ctx, 280, H - 60, 140, 200);
+                drawPineTree(ctx, W - 280, H - 60, 140, 200);
+
+                // Golden Reindeer Silhouettes leaping
+                drawReindeerSilhouette(ctx, 180, H - 180, 0.6, "rgba(254, 240, 138, 0.4)");
+                drawReindeerSilhouette(ctx, W - 220, H - 200, 0.7, "rgba(254, 240, 138, 0.45)");
+
+            } else if (themeType === "green") {
+                // 2. Cozy Hearth: Emerald Pine Forest + Golden Sparkles + Reindeer
+                ctx.fillStyle = "rgba(254, 240, 138, 0.12)";
+                ctx.beginPath();
+                ctx.arc(W * 0.5, H * 0.45, 500, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Layered Evergreen Pine Trees
+                ctx.fillStyle = "rgba(2, 44, 34, 0.75)";
+                drawPineTree(ctx, 160, H - 70, 200, 300);
+                drawPineTree(ctx, W - 160, H - 70, 200, 300);
+                drawPineTree(ctx, 320, H - 60, 150, 220);
+                drawPineTree(ctx, W - 320, H - 60, 150, 220);
+
+                // Reindeer Silhouettes
+                drawReindeerSilhouette(ctx, W - 200, H - 210, 0.75, "rgba(52, 211, 153, 0.45)");
+
+            } else if (themeType === "red") {
+                // 3. Festive Jubilee: Hanging Golden Baubles & Holly Ornaments + Reindeer
+                ctx.fillStyle = "rgba(251, 191, 36, 0.15)";
+                for (let i = 0; i < 14; i++) {
+                    const bx = (i * 90) + 50;
+                    ctx.beginPath();
+                    ctx.arc(bx, 100 + Math.sin(i) * 25, 20, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.strokeStyle = "rgba(251, 191, 36, 0.35)";
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(bx, 45);
+                    ctx.lineTo(bx, 80);
+                    ctx.stroke();
+                }
+
+                // Pine Trees & Reindeer on Red Canvas
+                ctx.fillStyle = "rgba(74, 4, 9, 0.7)";
+                drawPineTree(ctx, 140, H - 70, 180, 250);
+                drawPineTree(ctx, W - 140, H - 70, 180, 250);
+                drawReindeerSilhouette(ctx, 190, H - 190, 0.65, "rgba(251, 191, 36, 0.4)");
+
+            } else if (themeType === "gold") {
+                // 4. Imperial Glow: Golden Bokeh + Stars + Reindeer
+                for (let i = 0; i < 40; i++) {
+                    const bx = (Math.sin(i * 3.4) * 0.5 + 0.5) * W;
+                    const by = (Math.cos(i * 2.1) * 0.5 + 0.5) * H;
+                    const br = ((i % 8) + 3) * 7;
+                    ctx.fillStyle = i % 2 === 0 ? "rgba(254, 240, 138, 0.08)" : "rgba(245, 158, 11, 0.12)";
+                    ctx.beginPath();
+                    ctx.arc(bx, by, br, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                drawReindeerSilhouette(ctx, W - 230, H - 200, 0.75, "rgba(254, 240, 138, 0.5)");
+            }
+            ctx.restore();
+        }
+
+        // Draw Majestic Reindeer Silhouette Path
+        function drawReindeerSilhouette(ctx, x, y, scale, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.scale(scale, scale);
+            ctx.fillStyle = color;
+
+            ctx.beginPath();
+            // Reindeer body & head path
+            ctx.arc(0, 0, 18, 0, Math.PI * 2); // Body core
+            ctx.ellipse(22, -22, 10, 14, Math.PI / 4, 0, Math.PI * 2); // Neck & Head
+            ctx.fill();
+
+            // Antlers
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(26, -32);
+            ctx.lineTo(34, -48);
+            ctx.lineTo(42, -56);
+            ctx.moveTo(34, -48);
+            ctx.lineTo(26, -54);
+            ctx.moveTo(28, -36);
+            ctx.lineTo(18, -48);
+            ctx.stroke();
+
+            // Legs
+            ctx.beginPath();
+            ctx.moveTo(-8, 12); ctx.lineTo(-14, 40);
+            ctx.moveTo(8, 12); ctx.lineTo(12, 42);
+            ctx.stroke();
+
+            ctx.restore();
+        }
+
+        function drawPineTree(ctx, x, y, width, height) {
+            ctx.beginPath();
+            ctx.moveTo(x, y - height);
+            ctx.lineTo(x - width/2, y);
+            ctx.lineTo(x + width/2, y);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawCornerFlourish(ctx, x, y, mirror = false, color = "#fbbf24") {
+            ctx.save();
+            ctx.translate(x, y);
+            if (mirror) ctx.scale(-1, 1);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(0, 0, 22, 0, Math.PI * 0.5);
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        function roundRect(ctx, x, y, width, height, radius) {
+            ctx.beginPath();
+            ctx.moveTo(x + radius, y);
+            ctx.lineTo(x + width - radius, y);
+            ctx.quadraticCurveTo(x + width, y, x + width, y + radius);
+            ctx.lineTo(x + width, y + height - radius);
+            ctx.quadraticCurveTo(x + width, y + height, x + width - radius, y + height);
+            ctx.lineTo(x + radius, y + height);
+            ctx.quadraticCurveTo(x, y + height, x, y + height - radius);
+            ctx.lineTo(x, y + radius);
+            ctx.quadraticCurveTo(x, y, x + radius, y);
+            ctx.closePath();
+        }
+
+        function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+            const words = text.split(" ");
+            let line = "";
+            let currentY = y;
+
+            for (let n = 0; n < words.length; n++) {
+                const testLine = line + words[n] + " ";
+                const metrics = ctx.measureText(testLine);
+                if (metrics.width > maxWidth && n > 0) {
+                    ctx.fillText(line.trim(), x, currentY);
+                    line = words[n] + " ";
+                    currentY += lineHeight;
+                } else {
+                    line = testLine;
+                }
+            }
+            ctx.fillText(line.trim(), x, currentY);
+        }
+
+        // -------------------------------------------------------------
+        // 5. EVENT LISTENERS INITIALIZATION
+        // -------------------------------------------------------------
+        window.addEventListener("DOMContentLoaded", () => {
+            initSnowflakes();
+            renderSlide();
+            renderReferences();
+            updateAssignedWishDisplay();
+
+            // Department quick select chips
+            document.querySelectorAll(".dept-chip").forEach(chip => {
+                chip.addEventListener("click", () => {
+                    document.getElementById("student-dept").value = chip.dataset.dept;
+                });
+            });
+
+            // Shuffle assigned wish button
+            document.getElementById("shuffle-wish-btn").addEventListener("click", () => {
+                assignedWishIndex = (assignedWishIndex + 1) % festiveWishes25.length;
+                updateAssignedWishDisplay();
+                showToast("Assigned Christmas greeting updated!", "info");
+            });
+
+            // Theme switch radio update live preview
+            document.querySelectorAll('input[name="card-theme"]').forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    applyThemeToCardPreview(e.target.value);
+                });
+            });
+
+            // Form Submit Event
+            document.getElementById("souvenir-form").addEventListener("submit", handleFormSubmit);
+
+            // Download Card Button
+            document.getElementById("download-card-btn").addEventListener("click", exportHighResCanvasCard);
+
+            // Copy Wish Button
+            document.getElementById("copy-wish-btn").addEventListener("click", () => {
+                if (generatedCardData) {
+                    let fullCopy = `${generatedCardData.wishText}`;
+                    if (generatedCardData.personalMotto) {
+                        fullCopy += `\nPersonal Motto: "${generatedCardData.personalMotto}"`;
+                    }
+                    fullCopy += `\n— Merry Christmas from Politecnico di Milano! 🎄`;
+                    copyToClipboard(fullCopy, "Greeting & motto copied to clipboard!");
+                }
+            });
+
+            // Slide Navigation Buttons
+            document.getElementById("prev-slide-btn").addEventListener("click", () => {
+                if (currentSlideIndex > 0) {
+                    currentSlideIndex--;
+                    renderSlide();
+                }
+            });
+
+            document.getElementById("next-slide-btn").addEventListener("click", () => {
+                if (currentSlideIndex < presentationSlides.length - 1) {
+                    currentSlideIndex++;
+                    renderSlide();
+                }
+            });
+
+            // Copy Report Summary Button
+            document.getElementById("copy-report-btn").addEventListener("click", () => {
+                const summaryText = `Smart Meters & Engineering Ethics (Politecnico di Milano):\n1. Household Privacy: Fine-grained energy telemetry (NILM) reveals appliance usage. Enforce privacy-by-design.\n2. Cybersecurity: Connected endpoints expand cyber attack risks. Protect with end-to-end encryption & fail-safe mechanisms.\n3. Equity & Tariffs: Time-of-Use dynamic tariffs must protect vulnerable households.\n4. Transparency: Clear opt-in/opt-out governance for consumer data sharing.`;
+                copyToClipboard(summaryText, "Report summary copied to clipboard!");
+            });
+        });
+    </script>
+</body>
+</html>
