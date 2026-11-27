@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Meters & Ethics | Presentation Hub & Student Souvenir</title>
+    <title>Many Hands, One Household | Smart Meters & Ethics Hub</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Playfair Display -->
@@ -136,8 +136,8 @@
                     <img src="logo.png" alt="Politecnico di Milano Logo" class="header-logo-img" onError="this.onerror=null; this.src='https://img.icons8.com/color/96/graduation-cap.png';">
                 </div>
                 <div>
-                    <span class="font-bold text-base sm:text-lg tracking-tight text-white block leading-tight">Smart Meters & Ethics</span>
-                    <span class="text-[11px] text-amber-400 font-medium tracking-wider uppercase">Power Systems • Politecnico di Milano</span>
+                    <span class="font-bold text-base sm:text-lg tracking-tight text-white block leading-tight">Many Hands, One Household</span>
+                    <span class="text-[11px] text-amber-400 font-medium tracking-wider uppercase">Power Systems Ethics • Politecnico di Milano</span>
                 </div>
             </a>
 
@@ -169,16 +169,16 @@
         <div class="max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs sm:text-sm font-medium mb-6">
                 <i class="fa-solid fa-snowflake animate-spin" style="animation-duration: 10s;"></i>
-                <span>Power Systems Presentation: Ethical Issues & Social Implications</span>
+                <span>Power Systems • Ethical Issues and Social Implications</span>
             </div>
 
             <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight mb-5">
-                Ethical Intelligence in <br class="hidden sm:inline">
-                <span class="bg-gradient-to-r from-amber-300 via-rose-400 to-emerald-400 bg-clip-text text-transparent">Smart Meters & Smart Grids</span>
+                Many Hands, <br class="hidden sm:inline">
+                <span class="bg-gradient-to-r from-amber-300 via-rose-400 to-emerald-400 bg-clip-text text-transparent">One Household</span>
             </h1>
 
             <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-                Welcome! Browse our presentation slides, read our ethical summary, explore academic references, and claim your <strong class="text-white">Personalized Engineering Holiday Souvenir Card</strong> with your own photo or festive avatar! 🎄⚡
+                A critical reading of <strong class="text-white">Yao et al. (2024)</strong>, <em>“Smart Meter Data Sharing for AI-Enhanced Energy Systems”</em>: why secure and attractive is not the same as responsible — plus your <strong class="text-amber-300">Personalized Holiday Souvenir Card</strong>! 🎄⚡
             </p>
 
             <!-- 4 Quick Action Cards -->
@@ -520,11 +520,15 @@
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
                 <div>
                     <span class="text-amber-400 text-xs font-bold uppercase tracking-widest block mb-1">
-                        <i class="fa-solid fa-person-chalkboard mr-1"></i> Course Material
+                        <i class="fa-solid fa-person-chalkboard mr-1"></i> Presentation Deck
                     </span>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Interactive Slide Deck Viewer</h2>
-                    <p class="text-slate-400 text-sm mt-1">Key slides from our Smart Meters & Engineering Ethics presentation.</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Many Hands, One Household — Slide Viewer</h2>
+                    <p class="text-slate-400 text-sm mt-1">Critical reading of Yao et al. (2024) through the lens of the Problem of Many Hands.</p>
                 </div>
+                <a href="Many_hands_smart_meters.pptx" download="Many_hands_smart_meters.pptx"
+                    class="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border border-amber-500/30 text-sm font-semibold flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-file-powerpoint"></i> Download Slides (PPTX)
+                </a>
             </div>
 
             <!-- Interactive Slide Stage -->
@@ -563,65 +567,95 @@
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
                 <div>
                     <span class="text-emerald-400 text-xs font-bold uppercase tracking-widest block mb-1">
-                        <i class="fa-solid fa-file-contract mr-1"></i> Executive Briefing
+                        <i class="fa-solid fa-file-contract mr-1"></i> Critical Analysis Briefing
                     </span>
-                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Presentation Report Summary</h2>
-                    <p class="text-slate-400 text-sm mt-1">Core ethical dilemmas, technical insights, and responsible engineering takeaways.</p>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white">Executive Summary & Ethical Findings</h2>
+                    <p class="text-slate-400 text-sm mt-1">Four cases from Yao et al. (2024) examined through the Problem of Many Hands.</p>
                 </div>
-                <button type="button" id="copy-report-btn"
-                    class="self-start sm:self-auto px-4 py-2.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-sm font-semibold flex items-center gap-2 transition-all">
-                    <i class="fa-regular fa-copy"></i> Copy Summary
-                </button>
+                <div class="flex flex-wrap items-center gap-2.5 self-start sm:self-auto">
+                    <a href="report.pdf" download="Many-Hands-One-Household-Report.pdf"
+                        class="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold flex items-center gap-2 transition-all shadow-md">
+                        <i class="fa-solid fa-file-arrow-down"></i> Download Report (PDF)
+                    </a>
+                    <button type="button" id="copy-report-btn"
+                        class="px-4 py-2.5 rounded-xl bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-sm font-semibold flex items-center gap-2 transition-all">
+                        <i class="fa-regular fa-copy"></i> Copy Summary
+                    </button>
+                </div>
             </div>
 
+            <!-- Executive Summary Content -->
             <div id="report-content" class="glass-card rounded-3xl p-6 sm:p-8 space-y-6">
                 <div class="p-5 rounded-2xl bg-slate-900/70 border border-white/5">
                     <h3 class="text-lg font-bold text-white mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-circle-info text-emerald-400"></i> Executive Overview
+                        <i class="fa-solid fa-circle-info text-emerald-400"></i> Central Thesis: Secure & Attractive ≠ Responsible
                     </h3>
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Smart meters are a foundational component of modern smart grids, enabling two-way communication between utilities and consumers to optimize energy distribution, integrate renewable sources, and reduce operational costs. However, high-frequency energy telemetry introduces critical ethical responsibilities regarding user privacy, cybersecurity, equity, and informed consent.
+                        Yao et al. (2024) address two barriers to smart meter data sharing—<strong class="text-white">privacy/security</strong> (via technical architectures) and <strong class="text-white">willingness</strong> (via financial rewards)—while leaving <strong class="text-amber-300">moral responsibility</strong> unexamined. Applying the <em>Problem of Many Hands</em> (van de Poel &amp; Royakkers, 2011), each actor in the data pipeline performs a small, legal, and technically secure step (<em>“My part was secure and legal”</em>), leaving systemic household harms without an accountable owner.
                     </p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-rose-500/30 transition-colors">
-                        <div class="w-10 h-10 rounded-xl bg-rose-500/15 text-rose-400 flex items-center justify-center text-lg mb-3">
-                            <i class="fa-solid fa-user-shield"></i>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-500/15 text-rose-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-key"></i>
+                            </div>
+                            <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-rose-500/10 text-rose-300">Case 01 • Searchable Encryption</span>
                         </div>
-                        <h4 class="font-bold text-white text-base mb-1.5">1. Household Privacy & Data Granularity</h4>
+                        <h4 class="font-bold text-white text-base mb-1.5">1. Secure for Whom?</h4>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Non-Intrusive Load Monitoring (NILM) algorithms can infer exact appliance usage and home occupancy from high-frequency metering data. Ethical deployment demands data minimization and privacy-by-design.
+                            Retailers upload encrypted 15-minute readings so the cloud sees only ciphertext. Yet once a buyer purchases a search token and key, they decrypt <strong class="text-slate-200">plain 15-minute load profiles</strong> revealing waking, cooking, and occupancy—with no binding purpose limits after decryption.
                         </p>
                     </div>
 
                     <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-amber-500/30 transition-colors">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-lg mb-3">
-                            <i class="fa-solid fa-shield-halved"></i>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-city"></i>
+                            </div>
+                            <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-amber-500/10 text-amber-300">Case 02 • City Platform</span>
                         </div>
-                        <h4 class="font-bold text-white text-base mb-1.5">2. Grid Cybersecurity & Infrastructure Safety</h4>
+                        <h4 class="font-bold text-white text-base mb-1.5">2. One Platform, Many Hands</h4>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Millions of connected smart meters increase the systemic cyber attack surface. Remote disconnect capabilities must be secured with multi-factor authentication, end-to-end encryption, and fail-safe designs.
+                            A municipal <em>Center of Energy Big Data</em> packages energy data into a “Product Supermarket” relying on a security block and GDPR. Because privacy is collective (Regan, 2015), neighboring households still expose opted-out citizens and create panoptic self-censorship.
                         </p>
                     </div>
 
                     <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-emerald-500/30 transition-colors">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg mb-3">
-                            <i class="fa-solid fa-scale-balanced"></i>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-network-wired"></i>
+                            </div>
+                            <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-emerald-500/10 text-emerald-300">Case 03 • Edge &amp; Federated Learning</span>
                         </div>
-                        <h4 class="font-bold text-white text-base mb-1.5">3. Equity & Time-of-Use Dynamic Tariffs</h4>
+                        <h4 class="font-bold text-white text-base mb-1.5">3. Data Stay Home, Inferences Travel</h4>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Dynamic peak pricing models can disproportionately penalize low-income or inflexible households unable to shift energy consumption. Protections are needed to ensure social equity.
+                            Federated split learning keeps raw 15-minute data on the end meter while edge and cloud servers aggregate models. However, shared models, forecasts, and automated demand-response signals still travel outward and steer household daily routines without clear ownership of model uses.
                         </p>
                     </div>
 
                     <div class="p-5 rounded-2xl bg-slate-900/60 border border-white/5 hover:border-sky-500/30 transition-colors">
-                        <div class="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center text-lg mb-3">
-                            <i class="fa-solid fa-handshake"></i>
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-sky-500/15 text-sky-400 flex items-center justify-center text-lg">
+                                <i class="fa-solid fa-coins"></i>
+                            </div>
+                            <span class="text-[11px] font-semibold px-2.5 py-1 rounded-lg bg-sky-500/10 text-sky-300">Case 04 • HiFi-Gas Incentives</span>
                         </div>
-                        <h4 class="font-bold text-white text-base mb-1.5">4. Transparency & Informed Consent</h4>
+                        <h4 class="font-bold text-white text-base mb-1.5">4. Who Gets Paid, Who Is Asked?</h4>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Consumers deserve transparent disclosures regarding data sharing with third parties, as well as simple opt-in/opt-out governance mechanisms for non-essential telemetry.
+                            Gas companies and heating stations are scored on data quality and rewarded for improving federated forecasting (81.1% → 93.0%). Meanwhile, households—whose consumption generates the data—are neither asked for informed consent (BEIS, 2018: <em>willing ≠ informed</em>) nor paid.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-emerald-500/10 border border-amber-400/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <span class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </span>
+                        <p class="text-xs sm:text-sm text-slate-200">
+                            <strong class="text-amber-300">Takeaway:</strong> Responsible smart-grid data governance requires <strong class="text-white">a named hand at every step</strong>—binding purpose limits, democratic legitimacy, accountability for model inferences, and household inclusion.
                         </p>
                     </div>
                 </div>
@@ -655,7 +689,7 @@
             </div>
             <span class="font-semibold text-slate-200">Politecnico di Milano — Power Systems Course</span>
         </div>
-        <p class="mb-1">Smart Meters: Ethical Issues & Social Implications Presentation Hub</p>
+        <p class="mb-1">Many Hands, One Household • Critical Reading of Yao et al. (2024)</p>
         <p class="text-slate-500">Crafted with holiday cheer for all presentation attendees 🎄⚡</p>
     </footer>
 
@@ -666,85 +700,153 @@
         // -------------------------------------------------------------
         const presentationSlides = [
             {
-                title: "Smart Meters & Engineering Ethics",
-                subtitle: "Balancing Grid Modernization with Privacy, Security & Social Equity",
+                title: "Many Hands, One Household",
+                subtitle: "A Critical Reading of Yao et al. (2024), “Smart Meter Data Sharing for AI-Enhanced Energy Systems”",
+                callout: "Core Thesis: Secure and attractive is not the same as responsible — responsibility needs a named hand at every step.",
                 bullets: [
-                    "Introduction to Advanced Metering Infrastructure (AMI) and two-way energy telemetry.",
-                    "Why technical efficiency alone is insufficient without ethical stewardship.",
-                    "Overview of key stakeholders: energy consumers, utilities, grid operators, and society."
+                    "Published in IEEE Power & Energy Magazine (Nov./Dec. 2024, pp. 42–53).",
+                    "We examine four flagship architectures in the paper through one ethical lens: the Problem of Many Hands.",
+                    "01. Searchable Encryption • 02. City Energy Platform • 03. Federated Split Learning • 04. HiFi-Gas Incentives."
                 ]
             },
             {
-                title: "How Smart Meters Work",
-                subtitle: "Real-Time Energy Telemetry & Grid Automation",
+                title: "Research Question: Are Encryption & Incentives Enough?",
+                subtitle: "Evaluating Table 1 — The Two Data Barriers in Smart Meter Data Sharing",
+                callout: "Paper’s Formula: Privacy & Security → Technical Safeguards | Willingness → Rewards | Responsibility → Not Discussed.",
                 bullets: [
-                    "Records electricity usage at fine intervals (every 15 to 60 minutes).",
-                    "Enables automated billing, instant outage detection, and demand-response programs.",
-                    "Supports distributed renewable energy integration across modern smart grids."
+                    "Yao et al. frame data sharing around two stakeholders: Data Owners (control & fair value) and Data Requesters (legal compliance & data quality).",
+                    "Can privacy-preserving architectures and financial incentives alone make smart meter data sharing ethically justifiable?",
+                    "Crucial omission: institutional and moral responsibility when harms emerge downstream."
                 ]
             },
             {
-                title: "Ethical Issue I: Privacy & Surveillance",
-                subtitle: "When Power Signatures Reveal Household Habits",
+                title: "Analytical Lens: The Problem of Many Hands",
+                subtitle: "When Every Actor Says: “My Part Was Secure and Legal” (van de Poel & Royakkers, 2011)",
+                callout: "Three Questions Asked of Every Case: (1) Who are the hands? (2) What does it rely on? (3) What is left without an owner?",
                 bullets: [
-                    "Non-Intrusive Load Monitoring (NILM) can identify specific home appliances.",
-                    "Occupancy patterns reveal when residents are home, sleeping, or traveling.",
-                    "Ethical principle: Enforce data minimization, noise addition, and local edge processing."
+                    "Many actors each perform a small, legal step: meter & DSO, retailer, cloud host, platform operator, developers, and buyers.",
+                    "Each hand points to a local safeguard (cryptography, GDPR, data locality, or monetary rewards).",
+                    "The resulting harm falls between the hands—leaving the household exposed with nobody answering for it."
                 ]
             },
             {
-                title: "Ethical Issue II: Cybersecurity & Public Safety",
-                subtitle: "Protecting Critical Energy Infrastructure",
+                title: "01. Searchable Encryption — Secure for Whom?",
+                subtitle: "Retailers Sell 15-Minute Household Data Through a Cloud Marketplace",
+                callout: "Paper’s Claim: “…data remain encrypted for cloud platforms and are therefore deemed secure.”",
                 bullets: [
-                    "Millions of connected smart meters increase the systemic cyber attack surface.",
-                    "Remote disconnect switches can cause severe harm if unauthorized access occurs.",
-                    "Ethical duty: Robust end-to-end encryption, secure firmware, and physical safeguards."
+                    "Hands: Retailer uploads ciphertext → Platform sells access → Cloud searches ciphertext → Buyer decrypts locally with token & key.",
+                    "Relies on: Cryptography that hides readings from the cloud storage provider.",
+                    "Left without an owner: What the buyer does after decrypting plain 15-min curves (revealing waking, cooking, dishwasher & absence).",
+                    "Needed: Binding purpose limits that legally and technically constrain buyers post-decryption."
                 ]
             },
             {
-                title: "Ethical Issue III: Equity & Time-of-Use Tariffs",
-                subtitle: "Fair Access & Protecting Vulnerable Consumers",
+                title: "02. City Platform — One Platform, Many Hands",
+                subtitle: "Municipal “Center of Energy Big Data” & Data Product Supermarket",
+                callout: "Privacy is Collective (Regan, 2015): Even if Household C opts out, neighbors A, B, D & E allow C to be inferred.",
                 bullets: [
-                    "Dynamic Time-of-Use pricing may penalize low-income or shift-working households.",
-                    "Addressing digital literacy barriers and ensuring transparent billing policies.",
-                    "Guaranteeing equitable grid benefits across all socioeconomic communities."
+                    "Hands: Utility companies, city agencies, platform operator, and third-party app developers.",
+                    "Relies on: A Security Management block and a legal compliance floor (GDPR).",
+                    "Left without an owner: Democratic legitimacy—should a city commodify and sell its citizens’ energy data at all?",
+                    "Creates a Panopticon effect (Bentham): awareness of surveillance triggers chilling effects and self-censorship."
                 ]
             },
             {
-                title: "Conclusion & Ethical Recommendations",
-                subtitle: "Engineering a Trustworthy Smart Energy Future",
+                title: "03. Federated Split Learning — Data Stay Home, Inferences Travel",
+                subtitle: "End Meters Train Local Models While Edge & Cloud Servers Aggregate",
+                callout: "Paper’s Claim: “…preserving privacy by keeping the data local” (p. 48).",
                 bullets: [
-                    "Embed Privacy-by-Design and Security-by-Default into smart meter architecture.",
-                    "Establish clear regulatory oversight and consumer opt-in/opt-out data protections.",
-                    "Thank you for attending! Claim your custom holiday souvenir card above 🎅"
+                    "Hands: End smart meter, edge server operator, cloud aggregator, and downstream model users.",
+                    "Relies on: Data locality—raw 15-minute readings never leave the household meter.",
+                    "Left without an owner: What the trained model infers about the household and how automated demand-response steers daily routines.",
+                    "Needed: Clear accountability for model inferences and behavioral steering decisions."
+                ]
+            },
+            {
+                title: "04. HiFi-Gas Incentives — Who Gets Paid, Who Is Asked?",
+                subtitle: "Hierarchical Federated Learning Scored on Data Quality & Contribution",
+                callout: "UK BEIS Survey (2,015 customers, 2018): Willing ≠ Informed — households often lack meaningful understanding of data flows.",
+                bullets: [
+                    "Hands: Gas companies, heating stations, and the federated learning (FL) platform.",
+                    "Relies on: Financial rewards to incentivize companies to refine datasets (improving accuracy from 81.1% → 93.0%).",
+                    "Left without an owner: The households themselves—neither asked for genuine informed consent nor sharing in the financial rewards.",
+                    "Needed: Placing households at the center of both consent governance and benefit-sharing."
+                ]
+            },
+            {
+                title: "Conclusions: A Named Hand at Every Step",
+                subtitle: "Synthesis Across All Four Architectures in Yao et al. (2024)",
+                callout: "Privacy techniques and incentives make sharing secure and attractive — NOT responsible.",
+                bullets: [
+                    "Searchable Encryption → Needs binding purpose limits on buyers after decryption.",
+                    "City Energy Platform → Needs public democratic debate before selling civic data.",
+                    "Federated Split Learning → Needs explicit responsibility for downstream model uses.",
+                    "HiFi-Gas Incentives → Needs households included in both consent and rewards."
                 ]
             }
         ];
 
+        // Exact 10 References from Slide 18 of Many_hands_smart_meters.pptx
         const referencesData = [
             {
                 id: "ref-1",
-                tag: "Professional Code",
-                citation: "IEEE. (2020). IEEE Code of Ethics: Upholding public safety, health, welfare, and privacy in technological systems.",
-                note: "Foundational engineering commitment to protect public welfare and disclose system risks."
+                tag: "Big Data & Consent",
+                citation: "Barocas, S. and Nissenbaum, H. (2014). Big data’s end run around anonymity and consent. In Lane, J. et al. (eds.), Privacy, Big Data, and the Public Good. Cambridge University Press.",
+                note: "Critiques why anonymization and notice-and-consent fail in modern big data ecosystems."
             },
             {
                 id: "ref-2",
-                tag: "Cybersecurity & Privacy",
-                citation: "NIST. (2014). Guidelines for Smart Grid Cybersecurity (NISTIR 7628 Rev. 1). National Institute of Standards and Technology.",
-                note: "Framework for privacy impact assessments and security for Advanced Metering Infrastructure (AMI)."
+                tag: "Empirical Survey",
+                citation: "BEIS (2018). Smart Meter Customer Experience Study 2017: Post-installation Survey Report. UK Department for Business, Energy & Industrial Strategy.",
+                note: "Survey of 2,015 customers demonstrating the gap between consumer willingness and informed understanding."
             },
             {
                 id: "ref-3",
-                tag: "Academic Literature",
-                citation: "McDaniel, P., & McLaughlin, S. (2009). Security and Privacy Challenges in the Smart Grid. IEEE Security & Privacy, 7(3), 75–77.",
-                note: "Seminal study analyzing how high-resolution energy data exposes household routines."
+                tag: "Load Pattern Analytics",
+                citation: "Beretta, D., Grillo, S., Pigoli, D., Bionda, E., Bossi, C. and Tornelli, C. (2020). Functional principal component analysis as a versatile technique to understand and predict the electric consumption patterns. Sustainable Energy, Grids and Networks, 21, 100308.",
+                note: "Politecnico di Milano research on modeling and predicting household electric load profiles."
             },
             {
                 id: "ref-4",
-                tag: "Energy Ethics & Policy",
-                citation: "Milchram, C., Van de Kaa, G., Doorn, N., & Künneke, R. (2018). Moral Values as Factors for Social Acceptance of Smart Grid Technologies. Sustainability, 10(8), 2703.",
-                note: "Examines justice, trust, privacy, and public acceptance in smart grid rollouts."
+                tag: "Course Lectures",
+                citation: "Grillo, S. and Schiaffonati, V. (2026). Power Systems: Ethical Issues and Social Implications, lecture slides 1–4. Politecnico di Milano.",
+                note: "Course framework on engineering ethics, value-sensitive design, and social implications in power systems."
+            },
+            {
+                id: "ref-5",
+                tag: "Computer Ethics",
+                citation: "Johnson, D. (2009). Computer Ethics, 4th ed. Prentice-Hall.",
+                note: "Foundational analysis of moral accountability and socio-technical systems."
+            },
+            {
+                id: "ref-6",
+                tag: "Contextual Integrity",
+                citation: "Nissenbaum, H. (2004). Privacy as contextual integrity. Washington Law Review, 79(1), 119–158.",
+                note: "Establishes that privacy depends on appropriate information flows governed by context-specific norms."
+            },
+            {
+                id: "ref-7",
+                tag: "Collective Privacy",
+                citation: "Regan, P. M. (2015). Privacy and the common good: revisited. In Roessler, B. and Mokrosinska, D. (eds.), Social Dimensions of Privacy, 50–70. Cambridge University Press.",
+                note: "Shows why privacy is a collective social good that cannot be protected purely by individual opt-outs."
+            },
+            {
+                id: "ref-8",
+                tag: "Federated Incentives",
+                citation: "Sun, H. et al. (2024). HiFi-Gas: Hierarchical federated learning incentive mechanism enhanced gas usage estimation. Proc. IAAI-24, AAAI, 22824–22832.",
+                note: "Source model for the HiFi-Gas quality-scored federated learning incentive case study."
+            },
+            {
+                id: "ref-9",
+                tag: "Problem of Many Hands",
+                citation: "van de Poel, I. and Royakkers, L. (2011). Ethics, Technology, and Engineering. Wiley-Blackwell.",
+                note: "Defines the Problem of Many Hands in complex socio-technical engineering networks."
+            },
+            {
+                id: "ref-10",
+                tag: "Primary Target Paper",
+                citation: "Yao, R., Song, J., Li, Z., Yu, H. and Wang, Y. (2024). Smart meter data sharing for AI-enhanced energy systems. IEEE Power & Energy Magazine, Nov./Dec. 2024, 42–53. doi:10.1109/MPE.2024.3417239",
+                note: "Primary paper critically examined across searchable encryption, city platforms, split learning, and HiFi-Gas."
             }
         ];
 
@@ -901,7 +1003,12 @@
             const contentEl = document.getElementById("slide-content");
             contentEl.innerHTML = `
                 <h3 class="text-xl sm:text-3xl font-bold text-white mb-2">${slide.title}</h3>
-                <p class="text-amber-300 text-sm sm:text-base font-medium mb-6">${slide.subtitle}</p>
+                <p class="text-amber-300 text-sm sm:text-base font-medium mb-4">${slide.subtitle}</p>
+                ${slide.callout ? `
+                    <div class="mb-5 px-4 py-3 rounded-xl bg-amber-500/10 border border-amber-400/30 text-amber-200 text-xs sm:text-sm font-medium">
+                        <i class="fa-solid fa-quote-left text-amber-400 mr-1.5"></i>${slide.callout}
+                    </div>
+                ` : ""}
                 <ul class="space-y-3">
                     ${slide.bullets.map(b => `
                         <li class="flex items-start gap-3 text-slate-200 text-sm sm:text-base">
@@ -2073,8 +2180,8 @@
 
             // Copy Report Summary Button
             document.getElementById("copy-report-btn").addEventListener("click", () => {
-                const summaryText = `Smart Meters & Engineering Ethics (Politecnico di Milano):\n1. Household Privacy: Fine-grained energy telemetry (NILM) reveals appliance usage. Enforce privacy-by-design.\n2. Cybersecurity: Connected endpoints expand cyber attack risks. Protect with end-to-end encryption & fail-safe mechanisms.\n3. Equity & Tariffs: Time-of-Use dynamic tariffs must protect vulnerable households.\n4. Transparency: Clear opt-in/opt-out governance for consumer data sharing.`;
-                copyToClipboard(summaryText, "Report summary copied to clipboard!");
+                const summaryText = `Many Hands, One Household — Critical Reading of Yao et al. (2024) (Politecnico di Milano):\nCore Thesis: Secure and attractive is not the same as responsible — responsibility needs a named hand at every step.\n1. Searchable Encryption (Secure for Whom?): Cloud sees ciphertext, but buyers decrypt plain 15-min household load profiles without binding purpose limits.\n2. City Platform (One Platform, Many Hands): Selling civic energy data in a Product Supermarket under GDPR ignores collective privacy (Regan, 2015) and panoptic chilling effects.\n3. Federated Split Learning (Data Stay Home, Inferences Travel): Raw meter data stay local, yet shared models and demand-response forecasts steer daily household routines.\n4. HiFi-Gas Incentives (Who Gets Paid, Who Is Asked?): Gas companies are paid for data quality while households are neither informed/asked (BEIS, 2018) nor rewarded.`;
+                copyToClipboard(summaryText, "Executive summary copied to clipboard!");
             });
         });
     </script>
