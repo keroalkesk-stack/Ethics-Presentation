@@ -12,8 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- HTML2Canvas Library for 100% Pixel-Perfect DOM Snapshot -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
         tailwind.config = {
@@ -37,7 +35,7 @@
     </script>
 
     <style>
-        /* Base Resets to Prevent Unstyled Flash / Large Image Explosion */
+        /* Base Resets */
         body {
             background-color: #090f1d;
             color: #f8fafc;
@@ -52,46 +50,12 @@
             text-decoration: none;
         }
 
-        /* Strict logo fallback dimensions */
+        /* Circular University Logo Styling */
         .header-logo-img {
-            max-width: 40px !important;
-            max-height: 40px !important;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             object-fit: contain;
-        }
-
-        /* Atmospheric Rich Visual Background Patterns for Themes */
-        .theme-bg-cozy-red {
-            background: radial-gradient(circle at 50% 20%, #800a14 0%, #4a0409 50%, #1a0103 100%);
-            background-image: 
-                radial-gradient(circle at 20% 20%, rgba(251, 191, 36, 0.18) 0%, transparent 40%),
-                radial-gradient(circle at 80% 80%, rgba(225, 29, 72, 0.25) 0%, transparent 40%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fbbf24' fill-opacity='0.06'%3E%3Cpath d='M20 10 L25 25 L40 25 L28 34 L32 48 L20 40 L8 48 L12 34 L0 25 L15 25 Z'/%3E%3Ccircle cx='80' cy='30' r='4'/%3E%3Ccircle cx='70' cy='75' r='5'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .theme-bg-winter-blue {
-            background: radial-gradient(circle at 50% 30%, #034b75 0%, #022440 60%, #010f1e 100%);
-            background-image: 
-                radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.25) 0%, transparent 45%),
-                radial-gradient(circle at 10% 80%, rgba(254, 240, 138, 0.18) 0%, transparent 45%),
-                url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M60 10 L68 28 L88 28 L72 40 L78 60 L60 48 L42 60 L48 40 L32 28 L52 28 Z'/%3E%3Ccircle cx='20' cy='90' r='3'/%3E%3Ccircle cx='100' cy='30' r='4'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .theme-bg-emerald-pine {
-            background: radial-gradient(circle at 50% 20%, #065f46 0%, #02382b 60%, #011812 100%);
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(52, 211, 153, 0.22) 0%, transparent 40%),
-                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.18) 0%, transparent 40%),
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2334d399' fill-opacity='0.05'%3E%3Cpath d='M50 10 L70 50 L30 50 Z M50 35 L75 80 L25 80 Z'/%3E%3C/g%3E%3C/svg%3E");
-        }
-
-        .theme-bg-imperial-gold {
-            background: radial-gradient(circle at 50% 30%, #5c3d06 0%, #362202 60%, #170d00 100%);
-            background-image: 
-                radial-gradient(circle at 50% 10%, rgba(254, 240, 138, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 20% 90%, rgba(245, 158, 11, 0.22) 0%, transparent 45%),
-                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='3' fill='%23fef08a' fill-opacity='0.12'/%3E%3Ccircle cx='15' cy='20' r='2' fill='%23fbbf24' fill-opacity='0.15'/%3E%3C/svg%3E");
+            border-radius: 9999px;
         }
 
         /* Ambient Radial Background Gradients */
@@ -167,9 +131,9 @@
     <header class="sticky top-0 z-40 glass-card border-b border-white/10">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
             <a href="#" class="flex items-center gap-3 group">
-                <!-- University Logo Container with Fallback Icon & Inline Constraints -->
-                <div class="w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform shrink-0">
-                    <img src="logo.png" alt="University Logo" class="header-logo-img" onError="this.onerror=null; this.src='https://img.icons8.com/color/96/graduation-cap.png';">
+                <!-- Circular University Logo Medallion -->
+                <div class="w-11 h-11 rounded-full bg-white p-1 flex items-center justify-center shadow-lg ring-2 ring-amber-400/60 overflow-hidden group-hover:scale-105 transition-transform shrink-0">
+                    <img src="logo.png" alt="Politecnico di Milano Logo" class="header-logo-img" onError="this.onerror=null; this.src='https://img.icons8.com/color/96/graduation-cap.png';">
                 </div>
                 <div>
                     <span class="font-bold text-base sm:text-lg tracking-tight text-white block leading-tight">Smart Meters & Ethics</span>
@@ -214,7 +178,7 @@
             </h1>
 
             <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-                Welcome! Browse our presentation slides, read our ethical summary, explore academic references, and claim your <strong class="text-white">Personalized Engineering Holiday Souvenir Card</strong> created for each attendee! 🎄⚡
+                Welcome! Browse our presentation slides, read our ethical summary, explore academic references, and claim your <strong class="text-white">Personalized Engineering Holiday Souvenir Card</strong> with your own photo or festive avatar! 🎄⚡
             </p>
 
             <!-- 4 Quick Action Cards -->
@@ -224,7 +188,7 @@
                         <i class="fa-solid fa-id-card"></i>
                     </div>
                     <div class="font-semibold text-sm text-white">Holiday Souvenir</div>
-                    <div class="text-[11px] text-rose-300 mt-0.5">Personal Keepsake</div>
+                    <div class="text-[11px] text-rose-300 mt-0.5">Photo & Keepsake</div>
                 </a>
 
                 <a href="#presentation-section" class="glass-card p-4 rounded-2xl hover:border-amber-500/50 hover:-translate-y-1 transition-all group text-center">
@@ -274,12 +238,12 @@
                         </div>
                         <h2 class="text-2xl sm:text-4xl font-bold text-white">Claim Your Personalized Souvenir 🎅🎄</h2>
                         <p class="text-slate-300 text-sm sm:text-base mt-1.5 max-w-2xl">
-                            Enter your name, department, gender, and your personal motto—we will craft your official <strong class="text-white">Politecnico di Milano Holiday Badge & Wishes Card</strong> to download and share!
+                            Upload your photo to frame it inside a golden portrait frame (or leave it empty to use Santa / Mrs. Claus), add your details, and download your <strong class="text-white">Politecnico di Milano Holiday Card</strong>!
                         </p>
                     </div>
                     <div class="shrink-0">
                         <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-semibold">
-                            <i class="fa-solid fa-award"></i> Official Presentation Souvenir
+                            <i class="fa-solid fa-crown"></i> Bespoke Holiday Edition
                         </span>
                     </div>
                 </div>
@@ -293,7 +257,7 @@
                         <!-- 1. Full Name -->
                         <div>
                             <label for="student-name" class="block text-sm font-semibold text-white mb-1.5">
-                                1. Your Full Name <span class="text-rose-400">*</span>
+1. Your Full Name <span class="text-rose-400">*</span>
                             </label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">
@@ -304,10 +268,60 @@
                             </div>
                         </div>
 
-                        <!-- 2. Gender Selection (Switches Santa Character Image) -->
+                        <!-- 2. Optional Photo Upload (Framed Portrait) -->
+                        <div>
+                            <div class="flex items-center justify-between mb-1.5">
+                                <label class="block text-sm font-semibold text-white">
+2. Your Portrait Photo <span class="text-xs font-normal text-amber-300">(Optional)</span> 📸
+                                </label>
+                                <span class="text-[11px] text-slate-400">Default: Santa / Mrs. Claus</span>
+                            </div>
+
+                            <!-- Hidden File Input -->
+                            <input type="file" id="student-photo" accept="image/*" class="hidden">
+
+                            <!-- Upload Dropzone State (Visible when no photo uploaded) -->
+                            <div id="photo-upload-dropzone"
+                                class="cursor-pointer rounded-xl border-2 border-dashed border-slate-700 hover:border-amber-400/70 bg-slate-950/70 hover:bg-slate-950 p-4 text-center transition-all group">
+                                <div class="w-10 h-10 mx-auto mb-2 rounded-full bg-amber-500/15 text-amber-400 flex items-center justify-center text-base group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-camera-retro"></i>
+                                </div>
+                                <p class="text-xs font-semibold text-slate-200">
+                                    Click to upload your photo <span class="text-amber-400 underline">or drag & drop</span>
+                                </p>
+                                <p class="text-[11px] text-slate-500 mt-1">
+                                    Leave empty to automatically feature Santa or Mrs. Claus!
+                                </p>
+                            </div>
+
+                            <!-- Uploaded Photo Active Preview Bar (Visible after upload) -->
+                            <div id="photo-preview-bar" class="hidden rounded-xl bg-slate-950/90 border border-amber-400/50 p-3 flex items-center justify-between gap-3">
+                                <div class="flex items-center gap-3 min-w-0">
+                                    <img id="form-photo-thumb" src="" alt="Uploaded preview" class="w-12 h-12 rounded-lg object-cover border border-amber-400/80 shrink-0">
+                                    <div class="min-w-0">
+                                        <p id="form-photo-name" class="text-xs font-semibold text-white truncate">my-photo.jpg</p>
+                                        <p class="text-[11px] text-emerald-400 flex items-center gap-1 mt-0.5">
+                                            <i class="fa-solid fa-circle-check text-[10px]"></i> Framed on your card
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-1.5 shrink-0">
+                                    <button type="button" id="change-photo-btn" title="Change photo"
+                                        class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium transition-colors">
+                                        Change
+                                    </button>
+                                    <button type="button" id="remove-photo-btn" title="Remove photo and use default Santa"
+                                        class="px-2.5 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500/30 text-rose-300 border border-rose-500/30 text-xs font-medium transition-colors">
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Gender Selection (Switches Default Santa Character Image) -->
                         <div>
                             <label class="block text-sm font-semibold text-white mb-2">
-                                2. Character (Gender) <span class="text-rose-400">*</span>
+3. Default Character (If No Photo Uploaded) <span class="text-rose-400">*</span>
                             </label>
                             <div class="grid grid-cols-2 gap-3">
                                 <label class="cursor-pointer">
@@ -327,10 +341,10 @@
                             </div>
                         </div>
 
-                        <!-- 3. Department -->
+                        <!-- 4. Department -->
                         <div>
                             <label for="student-dept" class="block text-sm font-semibold text-white mb-1.5">
-                                3. Specialization / Department <span class="text-rose-400">*</span>
+4. Specialization / Department <span class="text-rose-400">*</span>
                             </label>
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-3.5 flex items-center text-slate-400">
@@ -348,10 +362,10 @@
                             </div>
                         </div>
 
-                        <!-- 4. Select Card Visual Theme -->
+                        <!-- 5. Select Card Visual Theme -->
                         <div>
                             <label class="block text-sm font-semibold text-white mb-2">
-                                4. Select Card Theme (Rich Atmospheric Styles) 🎨
+5. Select Card Theme (Rich Atmospheric Styles) 🎨
                             </label>
                             <div class="grid grid-cols-2 gap-2.5">
                                 <label class="cursor-pointer">
@@ -400,11 +414,11 @@
                             </div>
                         </div>
 
-                        <!-- 5. Assigned Holiday Greeting (1 of 25 Unique Greetings) -->
+                        <!-- 6. Assigned Holiday Greeting (1 of 25 Unique Greetings) -->
                         <div>
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="block text-sm font-semibold text-white">
-                                    5. Your Assigned Christmas Greeting 🎅
+6. Your Assigned Christmas Greeting 🎅
                                 </label>
                                 <button type="button" id="shuffle-wish-btn" class="px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 text-xs font-medium flex items-center gap-1.5 transition-colors">
                                     <i class="fa-solid fa-shuffle text-[11px]"></i> Shuffle Greeting
@@ -416,10 +430,10 @@
                             </div>
                         </div>
 
-                        <!-- 6. Separate Custom Personal Quote / Verse -->
+                        <!-- 7. Separate Custom Personal Quote / Verse -->
                         <div>
                             <label for="student-motto" class="block text-sm font-semibold text-white mb-1.5">
-                                6. Your Personal Motto, Verse, or Favorite Quote (Optional) 📜
+7. Your Personal Motto, Verse, or Favorite Quote (Optional) 📜
                             </label>
                             <textarea id="student-motto" rows="2" placeholder="e.g., 'The light shines in the darkness' or 'Engineer with passion and purpose...'"
                                 class="w-full px-4 py-2.5 rounded-xl bg-slate-950/80 border border-slate-700 text-white placeholder-slate-500 text-xs sm:text-sm focus:outline-none focus:border-rose-400 focus:ring-1 focus:ring-rose-400 transition-all resize-none"></textarea>
@@ -437,20 +451,20 @@
                     <div class="lg:col-span-7">
                         
                         <!-- State A: Empty Placeholder -->
-                        <div id="card-placeholder" class="bg-slate-900/50 border border-white/10 rounded-3xl p-8 text-center min-h-[480px] flex flex-col items-center justify-center">
+                        <div id="card-placeholder" class="bg-slate-900/50 border border-white/10 rounded-3xl p-8 text-center min-h-[520px] flex flex-col items-center justify-center">
                             <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-rose-500/20 to-amber-500/20 border border-rose-500/30 flex items-center justify-center text-4xl mb-4 shadow-inner">
-                                🎅
+                                🖼️
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Your Keepsake Card Appears Here</h3>
+                            <h3 class="text-xl font-bold text-white mb-2">Your Framed Keepsake Appears Here</h3>
                             <p class="text-slate-400 text-sm max-w-md mx-auto leading-relaxed mb-6">
-                                Enter your details & favorite motto on the left to generate your spacious, cozy Christmas souvenir card with custom themes!
+                                Upload your photo to display it inside our ornate golden frame (or leave it blank for Santa / Mrs. Claus) with your royal nameplate & holiday wishes underneath!
                             </p>
                             <div class="flex flex-wrap justify-center gap-3 text-xs text-slate-300">
                                 <span class="px-3 py-1.5 rounded-xl bg-slate-950/60 border border-white/5 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-palette text-rose-400"></i> 4 Cozy Themes
+                                    <i class="fa-solid fa-image text-amber-400"></i> Custom Photo Frame
                                 </span>
                                 <span class="px-3 py-1.5 rounded-xl bg-slate-950/60 border border-white/5 flex items-center gap-1.5">
-                                    <i class="fa-solid fa-quote-left text-amber-400"></i> Custom Quotes / Verses
+                                    <i class="fa-solid fa-crown text-rose-400"></i> Royal Nameplate
                                 </span>
                                 <span class="px-3 py-1.5 rounded-xl bg-slate-950/60 border border-white/5 flex items-center gap-1.5">
                                     <i class="fa-solid fa-expand text-emerald-400"></i> Spacious HD Export
@@ -458,76 +472,33 @@
                             </div>
                         </div>
 
-                        <!-- State B: Generated Live Souvenir Card -->
+                        <!-- State B: Generated Live Souvenir Card (100% Identical to HD Download) -->
                         <div id="card-result-wrap" class="hidden space-y-4">
                             
-                            <!-- Festive Souvenir Card Block -->
-                            <div id="festive-card" class="relative rounded-3xl p-5 sm:p-7 border-2 shadow-2xl overflow-hidden transition-all duration-500 theme-bg-cozy-red">
-                                
-                                <!-- Top Header Banner: Logo + Badge ID -->
-                                <div class="flex items-center justify-between gap-2 text-xs font-semibold tracking-wider border-b border-white/10 pb-4 mb-5">
-                                    <div class="flex items-center gap-3">
-                                        <div class="w-9 h-9 rounded-xl bg-white p-0.5 flex items-center justify-center shrink-0 shadow-md">
-                                            <img src="logo.png" alt="University Logo" class="header-logo-img" onError="this.onerror=null; this.src='https://img.icons8.com/color/96/graduation-cap.png';">
-                                        </div>
-                                        <div>
-                                            <span class="block text-white font-bold leading-none tracking-wide">POLITECNICO DI MILANO</span>
-                                            <span class="text-[10px] text-amber-300 font-normal">Department of Energy & Electrical Engineering</span>
-                                        </div>
-                                    </div>
-                                    <span id="card-badge-id" class="px-3 py-1 rounded-full bg-black/40 text-amber-300 font-mono text-[11px] border border-amber-400/40 shrink-0 shadow-sm">
-                                        POLIMI-2024-8942
-                                    </span>
-                                </div>
+                            <!-- Unified Live Preview Container -->
+                            <div class="relative max-w-[460px] mx-auto rounded-3xl overflow-hidden shadow-2xl border border-amber-400/40 bg-slate-950">
+                                <img id="live-card-preview-img" src="" alt="Your Personalized Politecnico di Milano Holiday Souvenir Card" class="w-full h-auto block select-none">
+                                <!-- Canvas shown directly if local file:// security prevents toDataURL() while keeping logo.png visible -->
+                                <canvas id="card-export-canvas" class="hidden w-full h-auto block"></canvas>
+                            </div>
 
-                                <!-- Center Content: Clean Artwork Box -->
-                                <div class="flex flex-col items-center text-center space-y-4 my-1">
-                                    
-                                    <!-- Full Artwork Display Box with Crisp Tight Gold Border (No Side Gaps) -->
-                                    <div class="relative shrink-0 w-full max-w-[320px] sm:max-w-[340px] mx-auto rounded-2xl overflow-hidden border-4 border-amber-400/90 shadow-2xl bg-transparent group">
-                                        <img id="card-santa-img" src="santa_male.jpg" alt="Engineering Santa Artwork" 
-                                             class="w-full h-auto object-cover block"
-                                             onError="this.onerror=null; this.src='https://images.unsplash.com/photo-1543589077-47d51606c1bf?w=600&auto=format&fit=crop&q=80';">
-                                    </div>
-
-                                    <!-- Student Name & Dept -->
-                                    <div class="pt-1">
-                                        <h3 id="card-student-name" class="font-serif text-3xl sm:text-4xl font-bold text-white tracking-tight drop-shadow-md">Student Name</h3>
-                                        <p id="card-student-dept" class="text-xs sm:text-sm text-amber-300 font-semibold tracking-wider uppercase mt-1">Electrical Engineering</p>
-                                    </div>
-                                    
-                                    <!-- Section A: Assigned Holiday Greeting Box (Overflow Safe) -->
-                                    <div class="w-full bg-black/45 border border-amber-400/35 rounded-2xl p-4 sm:p-5 relative shadow-inner text-left overflow-hidden">
-                                        <div class="text-[11px] uppercase tracking-widest text-amber-400 font-bold mb-1.5 flex items-center gap-1.5">
-                                            <i class="fa-solid fa-gift"></i> Festive Christmas Greeting
-                                        </div>
-                                        <p id="card-wish-text" class="text-slate-100 text-xs sm:text-sm leading-relaxed sm:leading-loose italic font-serif break-words">
-                                            "Wishing you a joyful holiday season filled with bright energy, warmth, and ethical excellence!"
-                                        </p>
-                                    </div>
-
-                                    <!-- Section B: Personal Motto / Verse (Visible if provided, Overflow Safe) -->
-                                    <div id="card-motto-wrap" class="w-full bg-white/10 border border-white/15 rounded-2xl p-4 sm:p-5 relative shadow-inner text-left overflow-hidden hidden">
-                                        <div class="text-[11px] uppercase tracking-widest text-rose-300 font-bold mb-1.5 flex items-center gap-1.5">
-                                            <i class="fa-solid fa-scroll"></i> Personal Motto / Verse
-                                        </div>
-                                        <p id="card-motto-text" class="text-white text-xs sm:text-sm leading-relaxed sm:leading-loose font-serif italic break-words">
-                                            ""
-                                        </p>
-                                    </div>
-
-                                    <div class="pt-2 flex items-center justify-between w-full text-[11px] text-slate-300 border-t border-white/10">
-                                        <span>⚡ Smart Meters Presentation Souvenir</span>
-                                        <span class="text-amber-300 font-serif italic">Merry Christmas 🎅</span>
-                                    </div>
-                                </div>
+                            <!-- Optional Helper Banner for Offline file:// Browser Mode -->
+                            <div id="local-file-helper" class="hidden max-w-[460px] mx-auto rounded-2xl bg-amber-500/10 border border-amber-400/30 p-3 flex items-center justify-between gap-3 text-xs text-amber-200">
+                                <span class="leading-snug">
+                                    <i class="fa-solid fa-circle-info text-amber-400 mr-1"></i>
+                                    Opened offline (<code class="text-white">file://</code>): link <code class="text-white">logo.png</code> once to include it in the PNG download.
+                                </span>
+                                <input type="file" id="manual-logo-input" accept="image/*" class="hidden">
+                                <button type="button" id="link-local-logo-btn" class="shrink-0 px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition-colors">
+                                    Link logo.png
+                                </button>
                             </div>
 
                             <!-- Download Action Bar -->
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-[460px] mx-auto">
                                 <button type="button" id="download-card-btn"
                                     class="py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2 transition-all">
-                                    <i class="fa-solid fa-download"></i> Download Theme Card (HD 1200x1600)
+                                    <i class="fa-solid fa-download"></i> Download HD Card (PNG)
                                 </button>
                                 <button type="button" id="copy-wish-btn"
                                     class="py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-white/10 flex items-center justify-center gap-2 transition-all">
@@ -630,7 +601,7 @@
                         </div>
                         <h4 class="font-bold text-white text-base mb-1.5">2. Grid Cybersecurity & Infrastructure Safety</h4>
                         <p class="text-slate-400 text-sm leading-relaxed">
-                            Millions of networked meter endpoints expand the attack surface. Remote disconnect capabilities must be secured with multi-factor authentication, end-to-end encryption, and fail-safe designs.
+                            Millions of connected smart meters increase the systemic cyber attack surface. Remote disconnect capabilities must be secured with multi-factor authentication, end-to-end encryption, and fail-safe designs.
                         </p>
                     </div>
 
@@ -678,16 +649,15 @@
 
     <!-- Footer -->
     <footer class="relative z-10 border-t border-white/10 bg-slate-950/90 py-8 px-4 text-center text-xs text-slate-400">
-        <div class="flex items-center justify-center gap-2 mb-2">
-            <img src="logo.png" alt="PoliMi" class="w-6 h-6 object-contain header-logo-img" onError="this.style.display='none'">
+        <div class="flex items-center justify-center gap-2.5 mb-2">
+            <div class="w-7 h-7 rounded-full bg-white p-0.5 flex items-center justify-center overflow-hidden ring-1 ring-amber-400/40">
+                <img src="logo.png" alt="PoliMi" class="w-full h-full object-contain rounded-full" onError="this.style.display='none'">
+            </div>
             <span class="font-semibold text-slate-200">Politecnico di Milano — Power Systems Course</span>
         </div>
         <p class="mb-1">Smart Meters: Ethical Issues & Social Implications Presentation Hub</p>
         <p class="text-slate-500">Crafted with holiday cheer for all presentation attendees 🎄⚡</p>
     </footer>
-
-    <!-- Offscreen Canvas for High-Resolution Card Download -->
-    <canvas id="card-export-canvas" class="hidden"></canvas>
 
     <!-- APPLICATION JAVASCRIPT -->
     <script>
@@ -809,41 +779,46 @@
 
         const cardThemeStyles = {
             "cozy-red": {
-                bgClass: "theme-bg-cozy-red border-amber-400/60 text-white",
-                canvasBg: ["#800a14", "#4a0409", "#1a0103"],
+                canvasBg: ["#880d18", "#4f050b", "#1c0204"],
                 accentColor: "#fbbf24",
+                secondaryAccent: "#fda4af",
                 borderColor: "#f59e0b",
+                boxFill: "rgba(18, 2, 4, 0.56)",
                 type: "red"
             },
             "winter-blue": {
-                bgClass: "theme-bg-winter-blue border-amber-400/60 text-white",
-                canvasBg: ["#034b75", "#022440", "#010f1e"],
-                accentColor: "#38bdf8",
+                canvasBg: ["#04527e", "#022847", "#011122"],
+                accentColor: "#7dd3fc",
+                secondaryAccent: "#fef08a",
                 borderColor: "#38bdf8",
+                boxFill: "rgba(2, 14, 28, 0.58)",
                 type: "blue"
             },
             "emerald-pine": {
-                bgClass: "theme-bg-emerald-pine border-amber-400/60 text-white",
-                canvasBg: ["#065f46", "#02382b", "#011812"],
-                accentColor: "#34d399",
+                canvasBg: ["#06684c", "#023e2f", "#011a14"],
+                accentColor: "#6ee7b7",
+                secondaryAccent: "#fde68a",
                 borderColor: "#34d399",
+                boxFill: "rgba(1, 22, 16, 0.58)",
                 type: "green"
             },
             "imperial-gold": {
-                bgClass: "theme-bg-imperial-gold border-amber-400/60 text-white",
-                canvasBg: ["#5c3d06", "#362202", "#170d00"],
+                canvasBg: ["#664407", "#3b2502", "#1a0f00"],
                 accentColor: "#fef08a",
+                secondaryAccent: "#fcd34d",
                 borderColor: "#f59e0b",
+                boxFill: "rgba(22, 13, 0, 0.58)",
                 type: "gold"
             }
         };
 
         let currentSlideIndex = 0;
-        let assignedWishIndex = 0;
+        let assignedWishIndex = Math.floor(Math.random() * festiveWishes25.length);
         let generatedCardData = null;
-
-        // Pick initial unique wish
-        assignedWishIndex = Math.floor(Math.random() * festiveWishes25.length);
+        let uploadedPhotoDataUrl = null;
+        let customLogoDataUrl = null;
+        let latestCardDataUrl = null;
+        let isCanvasTaintedByLocalFile = false;
 
         // -------------------------------------------------------------
         // 2. HELPER FUNCTIONS
@@ -976,17 +951,70 @@
         }
 
         // -------------------------------------------------------------
-        // 4. HOLIDAY CARD GENERATOR & SPACIOUS CANVAS EXPORTER
+        // 4. PORTRAIT PHOTO UPLOAD & FORM SUBMISSION HANDLERS
         // -------------------------------------------------------------
-        function generateUniqueBadgeId() {
-            const randomNum = Math.floor(1000 + Math.random() * 9000);
-            return `POLIMI-SMART-${randomNum}`;
+        function processUploadedPhoto(file) {
+            if (!file || !file.type.startsWith("image/")) {
+                showToast("Please select a valid image file (JPG, PNG, or WebP).", "error");
+                return;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                const img = new Image();
+                img.onload = function () {
+                    const size = Math.min(img.width, img.height);
+                    const targetDim = Math.min(900, size);
+                    const cropCanvas = document.createElement("canvas");
+                    cropCanvas.width = targetDim;
+                    cropCanvas.height = targetDim;
+                    const cropCtx = cropCanvas.getContext("2d");
+
+                    const sx = (img.width - size) / 2;
+                    const sy = img.height > img.width
+                        ? (img.height - size) * 0.25
+                        : (img.height - size) * 0.5;
+
+                    cropCtx.drawImage(img, sx, sy, size, size, 0, 0, targetDim, targetDim);
+                    uploadedPhotoDataUrl = cropCanvas.toDataURL("image/jpeg", 0.92);
+
+                    document.getElementById("form-photo-thumb").src = uploadedPhotoDataUrl;
+                    document.getElementById("form-photo-name").textContent = file.name;
+                    document.getElementById("photo-upload-dropzone").classList.add("hidden");
+                    document.getElementById("photo-preview-bar").classList.remove("hidden");
+
+                    if (generatedCardData) {
+                        generatedCardData.santaImgSrc = uploadedPhotoDataUrl;
+                        renderUnifiedCardCanvas();
+                    }
+
+                    showToast("Portrait photo framed and ready!", "success");
+                };
+                img.src = event.target.result;
+            };
+            reader.readAsDataURL(file);
         }
 
-        function applyThemeToCardPreview(themeKey) {
-            const cardEl = document.getElementById("festive-card");
-            const theme = cardThemeStyles[themeKey] || cardThemeStyles["cozy-red"];
-            cardEl.className = `relative rounded-3xl p-6 sm:p-8 border-2 shadow-2xl overflow-hidden transition-all duration-500 ${theme.bgClass}`;
+        function clearUploadedPhoto() {
+            uploadedPhotoDataUrl = null;
+            const input = document.getElementById("student-photo");
+            if (input) input.value = "";
+
+            document.getElementById("photo-preview-bar").classList.add("hidden");
+            document.getElementById("photo-upload-dropzone").classList.remove("hidden");
+
+            if (generatedCardData) {
+                const gender = document.querySelector('input[name="gender"]:checked')?.value || "male";
+                generatedCardData.gender = gender;
+                generatedCardData.santaImgSrc = gender === "female" ? "santa_female.jpg" : "santa_male.jpg";
+                renderUnifiedCardCanvas();
+            }
+
+            showToast("Photo removed — using default Santa / Mrs. Claus.", "info");
+        }
+
+        function generateUniqueBadgeId() {
+            return "POLIMI since 1863";
         }
 
         function handleFormSubmit(e) {
@@ -1003,8 +1031,9 @@
                 return;
             }
 
-            const santaImgSrc = gender === "female" ? "santa_female.jpg" : "santa_male.jpg";
-            const badgeId = generateUniqueBadgeId();
+            const defaultSantaSrc = gender === "female" ? "santa_female.jpg" : "santa_male.jpg";
+            const portraitSrc = uploadedPhotoDataUrl || defaultSantaSrc;
+            const badgeId = generatedCardData?.badgeId || generateUniqueBadgeId();
             const assignedWish = festiveWishes25[assignedWishIndex];
 
             generatedCardData = {
@@ -1015,94 +1044,114 @@
                 badgeId,
                 wishText: assignedWish,
                 personalMotto,
-                santaImgSrc
+                santaImgSrc: portraitSrc
             };
 
-            // Apply Selected Theme to Live Preview Card
-            applyThemeToCardPreview(themeKey);
+            renderUnifiedCardCanvas(() => {
+                document.getElementById("card-placeholder").classList.add("hidden");
+                document.getElementById("card-result-wrap").classList.remove("hidden");
+                showToast(`Luxury souvenir card created for ${name}!`, "success");
 
-            // Update DOM Card Elements
-            const cardImgEl = document.getElementById("card-santa-img");
-            cardImgEl.src = santaImgSrc;
-            
-            cardImgEl.onerror = function() {
-                this.onerror = null;
-                this.src = "https://images.unsplash.com/photo-1543589077-47d51606c1bf?w=600&auto=format&fit=crop&q=80";
-            };
-
-            document.getElementById("card-student-name").textContent = name;
-            document.getElementById("card-student-dept").textContent = dept;
-            document.getElementById("card-wish-text").textContent = `"${assignedWish}"`;
-            document.getElementById("card-badge-id").textContent = badgeId;
-
-            // Personal Motto Section visibility
-            const mottoWrap = document.getElementById("card-motto-wrap");
-            const mottoText = document.getElementById("card-motto-text");
-            if (personalMotto) {
-                mottoText.textContent = `"${personalMotto}"`;
-                mottoWrap.classList.remove("hidden");
-            } else {
-                mottoWrap.classList.add("hidden");
-            }
-
-            // Display result wrapper
-            document.getElementById("card-placeholder").classList.add("hidden");
-            document.getElementById("card-result-wrap").classList.remove("hidden");
-
-            showToast(`Card created for ${name}!`, "success");
-
-            if (window.innerWidth < 1024) {
-                document.getElementById("card-result-wrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
-            }
+                if (window.innerWidth < 1024) {
+                    document.getElementById("card-result-wrap").scrollIntoView({ behavior: "smooth", block: "nearest" });
+                }
+            });
         }
 
-        // =========================================================
-        // RICH ATMOSPHERIC CANVAS EXPORTER (DYNAMICALLY THEME MATCHED)
-        // =========================================================
-        function exportHighResCanvasCard() {
+        // -------------------------------------------------------------
+        // 5. UNIFIED 1200x1500 LUXURY HD CANVAS RENDERER & EXPORTER
+        // -------------------------------------------------------------
+        function loadSafeCanvasImage(src) {
+            return new Promise((resolve) => {
+                if (!src) {
+                    resolve(null);
+                    return;
+                }
+                const img = new Image();
+                const isHttp = window.location.protocol.startsWith("http");
+                if (!src.startsWith("data:") && isHttp) {
+                    img.crossOrigin = "anonymous";
+                }
+                img.onload = () => resolve(img);
+                img.onerror = () => resolve(null);
+                img.src = src;
+            });
+        }
+
+        function getWrappedLines(ctx, text, maxWidth) {
+            const words = text.split(/\s+/);
+            const lines = [];
+            let line = "";
+
+            for (let n = 0; n < words.length; n++) {
+                const testLine = line ? `${line} ${words[n]}` : words[n];
+                if (ctx.measureText(testLine).width > maxWidth && line) {
+                    lines.push(line);
+                    line = words[n];
+                } else {
+                    line = testLine;
+                }
+            }
+            if (line) lines.push(line);
+            return lines;
+        }
+
+        /**
+         * Draws the real university logo (logo.png) inside a crisp circular white & gold medallion,
+         * preserving its full aspect ratio so circular or wide logos never get distorted or clipped.
+         */
+        function drawUniversityLogoBadge(ctx, logoImg, logoCx, logoCy, logoRadius) {
+            ctx.save();
+
+            // Outer Gold Halo Ring
+            ctx.beginPath();
+            ctx.arc(logoCx, logoCy, logoRadius + 4, 0, Math.PI * 2);
+            ctx.fillStyle = "#fbbf24";
+            ctx.fill();
+
+            // Crisp White Medallion Base
+            ctx.beginPath();
+            ctx.arc(logoCx, logoCy, logoRadius, 0, Math.PI * 2);
+            ctx.fillStyle = "#ffffff";
+            ctx.fill();
+            ctx.clip();
+
+            if (logoImg && logoImg.width > 0 && logoImg.height > 0) {
+                const maxInnerBox = (logoRadius - 5) * 2;
+                const scale = Math.min(maxInnerBox / logoImg.width, maxInnerBox / logoImg.height);
+                const drawW = logoImg.width * scale;
+                const drawH = logoImg.height * scale;
+                ctx.drawImage(logoImg, logoCx - drawW / 2, logoCy - drawH / 2, drawW, drawH);
+            } else {
+                drawVectorUniversityCrest(ctx, logoCx, logoCy, logoRadius - 3);
+            }
+
+            ctx.restore();
+        }
+
+        async function renderUnifiedCardCanvas(onComplete, forceUntainted = false) {
             if (!generatedCardData) return;
 
-            const cardEl = document.getElementById("festive-card");
-            if (!cardEl) return;
-
-            showToast("Generating 100% Pixel-Perfect HD download...", "info");
-
-            // Capture exact DOM snapshot with 3x Ultra-HD resolution scale
-            if (typeof html2canvas === "function") {
-                html2canvas(cardEl, {
-                    scale: 3, // 3x Ultra-HD scale for razor-sharp text & graphics
-                    useCORS: true,
-                    allowTaint: true,
-                    backgroundColor: null,
-                    logging: false
-                }).then(canvas => {
-                    const link = document.createElement("a");
-                    const safeName = generatedCardData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "student";
-                    link.download = `polimi-christmas-${safeName}.png`;
-                    link.href = canvas.toDataURL("image/png", 1.0);
-                    link.click();
-                    showToast("Downloaded exact 1:1 HD preview card!", "success");
-                }).catch(err => {
-                    fallbackCanvasExport();
-                });
-            } else {
-                fallbackCanvasExport();
-            }
-        }
-
-        function fallbackCanvasExport() {
             const canvas = document.getElementById("card-export-canvas");
             const ctx = canvas.getContext("2d");
 
-            // Generous Canvas Dimensions
             const W = 1200;
-            const H = 1600;
+            const H = 1500;
             canvas.width = W;
             canvas.height = H;
+            const centerX = W / 2;
 
             const theme = cardThemeStyles[generatedCardData.themeKey] || cardThemeStyles["cozy-red"];
+            const activeLogoSrc = customLogoDataUrl || "logo.png";
 
-            // 1. Dynamic Theme Gradient Background (Matches Chosen Theme)
+            const [portraitImg, logoImg] = forceUntainted
+                ? [uploadedPhotoDataUrl ? await loadSafeCanvasImage(uploadedPhotoDataUrl) : null, customLogoDataUrl ? await loadSafeCanvasImage(customLogoDataUrl) : null]
+                : await Promise.all([
+                    loadSafeCanvasImage(generatedCardData.santaImgSrc),
+                    loadSafeCanvasImage(activeLogoSrc)
+                ]);
+
+            // 1. Multi-Stop Theme Gradient Background
             const bgGrad = ctx.createLinearGradient(0, 0, 0, H);
             bgGrad.addColorStop(0, theme.canvasBg[0]);
             bgGrad.addColorStop(0.5, theme.canvasBg[1]);
@@ -1110,299 +1159,770 @@
             ctx.fillStyle = bgGrad;
             ctx.fillRect(0, 0, W, H);
 
-            // 2. Rich Atmospheric Theme Artwork (Reindeer, Snowy Pines, Glow)
+            // Warm Center Spotlight Glow
+            const spotlight = ctx.createRadialGradient(centerX, 540, 60, centerX, 620, 760);
+            spotlight.addColorStop(0, "rgba(254, 240, 138, 0.16)");
+            spotlight.addColorStop(0.55, "rgba(251, 191, 36, 0.05)");
+            spotlight.addColorStop(1, "rgba(0, 0, 0, 0.38)");
+            ctx.fillStyle = spotlight;
+            ctx.fillRect(0, 0, W, H);
+
+            // 2. Atmospheric Theme Artwork
             drawThemeAtmosphereArt(ctx, W, H, theme.type);
 
-            // 3. Decorative Outer Frame (Matches Theme Accent Color)
-            ctx.strokeStyle = theme.borderColor;
-            ctx.lineWidth = 10;
-            roundRect(ctx, 45, 45, W - 90, H - 90, 48);
+            // 3. Triple-Layered Luxury Metallic Gold Frame
+            ctx.save();
+            const frameMetallic = ctx.createLinearGradient(0, 0, W, H);
+            frameMetallic.addColorStop(0, "#fef08a");
+            frameMetallic.addColorStop(0.25, theme.borderColor);
+            frameMetallic.addColorStop(0.5, "#fde68a");
+            frameMetallic.addColorStop(0.75, theme.borderColor);
+            frameMetallic.addColorStop(1, "#fef08a");
+
+            ctx.strokeStyle = frameMetallic;
+            ctx.lineWidth = 11;
+            roundRect(ctx, 36, 36, W - 72, H - 72, 46);
             ctx.stroke();
 
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
-            ctx.lineWidth = 2.5;
-            roundRect(ctx, 65, 65, W - 130, H - 130, 36);
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.28)";
+            ctx.lineWidth = 2;
+            roundRect(ctx, 56, 56, W - 112, H - 112, 34);
             ctx.stroke();
 
-            // Corner Ornaments
-            drawCornerFlourish(ctx, 80, 80, false, theme.borderColor);
-            drawCornerFlourish(ctx, W - 80, 80, true, theme.borderColor);
+            ctx.strokeStyle = "rgba(251, 191, 36, 0.25)";
+            ctx.lineWidth = 1.5;
+            roundRect(ctx, 66, 66, W - 132, H - 132, 28);
+            ctx.stroke();
+            ctx.restore();
 
-            // 4. Header: University Logo & Text
+            // Corner Medallions
+            drawLuxuryCornerMedallion(ctx, 74, 74, false, false, theme.borderColor);
+            drawLuxuryCornerMedallion(ctx, W - 74, 74, true, false, theme.borderColor);
+            drawLuxuryCornerMedallion(ctx, 74, H - 74, false, true, theme.borderColor);
+            drawLuxuryCornerMedallion(ctx, W - 74, H - 74, true, true, theme.borderColor);
+
+            // 4. Header: Circular University Logo Medallion + Title + Pill
+            const logoRadius = 38;
+            const logoCx = 132;
+            const logoCy = 122;
+            drawUniversityLogoBadge(ctx, logoImg, logoCx, logoCy, logoRadius);
+
             ctx.fillStyle = "#ffffff";
-            ctx.font = "bold 34px Inter, sans-serif";
+            ctx.font = "bold 31px Inter, sans-serif";
             ctx.textAlign = "left";
-            ctx.fillText("POLITECNICO DI MILANO", 110, 130);
+            ctx.fillText("POLITECNICO DI MILANO", 188, 118);
 
             ctx.fillStyle = theme.accentColor;
-            ctx.font = "500 21px Inter, sans-serif";
-            ctx.fillText("Department of Energy & Power Systems Presentation", 110, 165);
+            ctx.font = "600 18px Inter, sans-serif";
+            ctx.fillText("Seasons Greetings & Warm Wishes  •  Milano 2027", 188, 148);
 
-            // Badge ID Pill (Right Aligned)
-            ctx.fillStyle = "rgba(0, 0, 0, 0.45)";
-            roundRect(ctx, W - 350, 105, 240, 54, 27);
+            // Top-Right Pill
+            ctx.fillStyle = "rgba(0, 0, 0, 0.52)";
+            roundRect(ctx, W - 348, 95, 254, 52, 26);
+            ctx.fill();
+            ctx.strokeStyle = theme.borderColor;
+            ctx.lineWidth = 2.2;
+            ctx.stroke();
+
+            ctx.fillStyle = "#fef08a";
+            ctx.font = "bold 19px monospace";
+            ctx.textAlign = "center";
+            ctx.fillText(generatedCardData.badgeId, W - 221, 127);
+
+            drawOrnamentalDivider(ctx, centerX, 178, W - 190, "rgba(251, 191, 36, 0.45)");
+
+            // 5. Centerpiece: Golden Portrait Frame
+            const boxW = 390;
+            const boxH = 390;
+            const boxY = 212;
+
+            ctx.save();
+            const frameGlow = ctx.createRadialGradient(centerX, boxY + boxH / 2, 70, centerX, boxY + boxH / 2, 300);
+            frameGlow.addColorStop(0, "rgba(254, 240, 138, 0.34)");
+            frameGlow.addColorStop(1, "rgba(251, 191, 36, 0)");
+            ctx.fillStyle = frameGlow;
+            ctx.fillRect(centerX - 310, boxY - 50, 620, boxH + 100);
+            ctx.restore();
+
+            const goldGrad = ctx.createLinearGradient(centerX - boxW / 2, boxY, centerX + boxW / 2, boxY + boxH);
+            goldGrad.addColorStop(0, "#fef08a");
+            goldGrad.addColorStop(0.3, "#f59e0b");
+            goldGrad.addColorStop(0.65, "#b45309");
+            goldGrad.addColorStop(1, "#fde047");
+            ctx.fillStyle = goldGrad;
+            roundRect(ctx, centerX - boxW / 2 - 15, boxY - 15, boxW + 30, boxH + 30, 34);
+            ctx.fill();
+
+            ctx.save();
+            roundRect(ctx, centerX - boxW / 2, boxY, boxW, boxH, 24);
+            ctx.clip();
+
+            if (portraitImg) {
+                const minSide = Math.min(portraitImg.width, portraitImg.height);
+                const sx = (portraitImg.width - minSide) / 2;
+                const sy = portraitImg.height > portraitImg.width
+                    ? (portraitImg.height - minSide) * 0.25
+                    : (portraitImg.height - minSide) * 0.5;
+                ctx.drawImage(portraitImg, sx, sy, minSide, minSide, centerX - boxW / 2, boxY, boxW, boxH);
+            } else {
+                drawVectorSantaAvatar(ctx, centerX - boxW / 2, boxY, boxW, boxH, generatedCardData.gender);
+            }
+            ctx.restore();
+
+            ctx.strokeStyle = "rgba(254, 249, 195, 0.95)";
+            ctx.lineWidth = 4;
+            roundRect(ctx, centerX - boxW / 2, boxY, boxW, boxH, 24);
+            ctx.stroke();
+
+            // Top Ribbon Crest
+            ctx.fillStyle = "#090f1d";
+            roundRect(ctx, centerX - 122, boxY - 28, 244, 34, 17);
+            ctx.fill();
+            ctx.strokeStyle = "#fbbf24";
+            ctx.lineWidth = 2.2;
+            ctx.stroke();
+            ctx.fillStyle = "#fef08a";
+            ctx.font = "bold 15px Inter, sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText("✦  BUONE FESTE 2027  ✦", centerX, boxY - 6);
+
+            // 6. Royal Personalized Nameplate Frame
+            const plaqueY = 632;
+            const plaqueH = 166;
+            const plaqueW = W - 210;
+            drawLuxuryNameplateFrame(ctx, centerX, plaqueY, plaqueW, plaqueH, generatedCardData.name, generatedCardData.dept, theme);
+
+            // 7. Dynamic Message Boxes
+            const hasMotto = Boolean(generatedCardData.personalMotto);
+            const cardInnerW = W - 200;
+            const textWrapW = cardInnerW - 90;
+
+            ctx.font = "italic 26px Georgia, serif";
+            const wishLines = getWrappedLines(ctx, `"${generatedCardData.wishText}"`, textWrapW);
+            const wishLineH = 38;
+            const wishBoxH = Math.max(152, 82 + wishLines.length * wishLineH);
+            let currentY = plaqueY + plaqueH + 22;
+
+            // Box A: Small Wish From Us To You
+            ctx.fillStyle = theme.boxFill;
+            roundRect(ctx, 100, currentY, cardInnerW, wishBoxH, 24);
             ctx.fill();
             ctx.strokeStyle = theme.borderColor;
             ctx.lineWidth = 2;
             ctx.stroke();
 
-            ctx.fillStyle = "#fef08a";
-            ctx.font = "bold 21px monospace";
-            ctx.textAlign = "center";
-            ctx.fillText(generatedCardData.badgeId, W - 230, 140);
+            ctx.fillStyle = "#f43f5e";
+            ctx.font = "bold 18px Inter, sans-serif";
+            ctx.textAlign = "left";
+            ctx.fillText("❤️", 135, currentY + 39);
 
-            // Header Divider Line
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
+            ctx.fillStyle = theme.accentColor;
+            ctx.font = "bold 17px Inter, sans-serif";
+            ctx.fillText("SMALL WISH FROM US TO YOU", 166, currentY + 38);
+
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "italic 26px Georgia, serif";
+            ctx.textAlign = "center";
+            wishLines.forEach((lineStr, idx) => {
+                ctx.fillText(lineStr, centerX, currentY + 86 + idx * wishLineH);
+            });
+
+            currentY += wishBoxH + 20;
+
+            if (hasMotto) {
+                // Box B: Personal Motto / Verse
+                ctx.font = "italic 24px Georgia, serif";
+                const mottoLines = getWrappedLines(ctx, `"${generatedCardData.personalMotto}"`, textWrapW);
+                const mottoLineH = 36;
+                const mottoBoxH = Math.max(142, 80 + mottoLines.length * mottoLineH);
+
+                ctx.fillStyle = "rgba(255, 255, 255, 0.09)";
+                roundRect(ctx, 100, currentY, cardInnerW, mottoBoxH, 24);
+                ctx.fill();
+                ctx.strokeStyle = "rgba(251, 191, 36, 0.38)";
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.fillStyle = theme.secondaryAccent;
+                ctx.font = "bold 17px Inter, sans-serif";
+                ctx.textAlign = "left";
+                ctx.fillText("📜  PERSONAL MOTTO / VERSE", 135, currentY + 38);
+
+                ctx.fillStyle = "#ffffff";
+                ctx.font = "italic 24px Georgia, serif";
+                ctx.textAlign = "center";
+                mottoLines.forEach((lineStr, idx) => {
+                    ctx.fillText(lineStr, centerX, currentY + 84 + idx * mottoLineH);
+                });
+
+                currentY += mottoBoxH + 18;
+            } else {
+                // Holiday Keepsake Plaque with Snowman & Gold Seal
+                const sealBoxH = 166;
+                ctx.fillStyle = "rgba(255, 255, 255, 0.07)";
+                roundRect(ctx, 100, currentY, cardInnerW, sealBoxH, 24);
+                ctx.fill();
+                ctx.strokeStyle = "rgba(251, 191, 36, 0.32)";
+                ctx.lineWidth = 1.8;
+                ctx.stroke();
+
+                drawFestiveSnowman(ctx, 185, currentY + 118, 0.7);
+                drawGoldFoilSeal(ctx, W - 185, currentY + 84, 46, theme.borderColor);
+
+                ctx.fillStyle = theme.accentColor;
+                ctx.font = "bold 16px Inter, sans-serif";
+                ctx.textAlign = "center";
+                ctx.fillText("✦  MERRY CHRISTMAS & HAPPY NEW YEAR 2027  ✦", centerX, currentY + 44);
+
+                ctx.fillStyle = "#f8fafc";
+                ctx.font = "italic 22px Georgia, serif";
+                ctx.fillText("May your grid stay balanced, your innovations stay ethical,", centerX, currentY + 90);
+                ctx.fillText("and your New Year shine with bright energy!", centerX, currentY + 124);
+
+                currentY += sealBoxH + 18;
+            }
+
+            // 8. Bottom Holiday Landscape & Footer
+            drawBottomHolidayScene(ctx, W, H, theme);
+
+            ctx.strokeStyle = "rgba(255, 255, 255, 0.22)";
             ctx.lineWidth = 2;
             ctx.beginPath();
-            ctx.moveTo(110, 200);
-            ctx.lineTo(W - 110, 200);
+            ctx.moveTo(95, H - 104);
+            ctx.lineTo(W - 95, H - 104);
             ctx.stroke();
 
-            // 5. Load & Render Full Aspect-Preserved Santa Image Artwork
-            const santaImg = new Image();
-            santaImg.crossOrigin = "anonymous";
-            santaImg.onload = function() {
-                const boxW = 500;
-                const boxH = 500;
-                const centerX = W / 2;
-                const boxY = 225;
+            ctx.fillStyle = "#f8fafc";
+            ctx.font = "600 20px Inter, sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText("✨  Wishing You Joy, Peace & Bright Days Ahead  •  Milano 2027  🎄", centerX, H - 68);
 
-                // Container Clip around Artwork
-                ctx.save();
-                roundRect(ctx, centerX - boxW/2, boxY, boxW, boxH, 28);
-                ctx.clip();
+            // Sync Preview & Export State
+            const previewImgEl = document.getElementById("live-card-preview-img");
+            const localHelperEl = document.getElementById("local-file-helper");
 
-                // Draw Image preserving full aspect ratio
-                ctx.drawImage(santaImg, centerX - boxW/2, boxY, boxW, boxH);
-                ctx.restore();
+            try {
+                latestCardDataUrl = canvas.toDataURL("image/png", 1.0);
+                isCanvasTaintedByLocalFile = false;
 
-                // Gold Border Ring around Artwork Container
-                ctx.strokeStyle = theme.borderColor;
-                ctx.lineWidth = 8;
-                roundRect(ctx, centerX - boxW/2, boxY, boxW, boxH, 28);
-                ctx.stroke();
-
-                // 6. Student Name & Department
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "bold 56px Georgia, serif";
-                ctx.textAlign = "center";
-                ctx.fillText(generatedCardData.name, centerX, 785);
-
-                ctx.fillStyle = theme.accentColor;
-                ctx.font = "bold 25px Inter, sans-serif";
-                ctx.fillText(generatedCardData.dept.toUpperCase(), centerX, 835);
-
-                // 7. Section A: Assigned Christmas Greeting Box (Overflow Safe)
-                const hasMotto = Boolean(generatedCardData.personalMotto);
-                const wishBoxY = 875;
-                const wishBoxH = hasMotto ? 290 : 480;
-
-                ctx.fillStyle = "rgba(0, 0, 0, 0.50)";
-                roundRect(ctx, 110, wishBoxY, W - 220, wishBoxH, 24);
-                ctx.fill();
-                ctx.strokeStyle = theme.borderColor;
-                ctx.lineWidth = 2;
-                ctx.stroke();
-
-                ctx.fillStyle = theme.accentColor;
-                ctx.font = "bold 20px Inter, sans-serif";
-                ctx.textAlign = "left";
-                ctx.fillText("🎁 FESTIVE CHRISTMAS GREETING", 145, wishBoxY + 45);
-
-                ctx.fillStyle = "#ffffff";
-                ctx.font = "italic 28px Georgia, serif";
-                ctx.textAlign = "center";
-                wrapCanvasText(ctx, `"${generatedCardData.wishText}"`, centerX, wishBoxY + 110, W - 310, 44);
-
-                // 8. Section B: Personal Motto / Verse (If provided)
-                if (hasMotto) {
-                    const mottoBoxY = 1195;
-                    const mottoBoxH = 240;
-
-                    ctx.fillStyle = "rgba(255, 255, 255, 0.10)";
-                    roundRect(ctx, 110, mottoBoxY, W - 220, mottoBoxH, 24);
-                    ctx.fill();
-                    ctx.strokeStyle = "rgba(255, 255, 255, 0.25)";
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
-
-                    ctx.fillStyle = "#fda4af";
-                    ctx.font = "bold 20px Inter, sans-serif";
-                    ctx.textAlign = "left";
-                    ctx.fillText("📜 PERSONAL MOTTO / VERSE", 145, mottoBoxY + 45);
-
-                    ctx.fillStyle = "#ffffff";
-                    ctx.font = "italic 26px Georgia, serif";
-                    ctx.textAlign = "center";
-                    wrapCanvasText(ctx, `"${generatedCardData.personalMotto}"`, centerX, mottoBoxY + 110, W - 310, 42);
+                if (previewImgEl) {
+                    previewImgEl.src = latestCardDataUrl;
+                    previewImgEl.classList.remove("hidden");
                 }
+                canvas.classList.add("hidden");
+                if (localHelperEl) localHelperEl.classList.add("hidden");
+            } catch (err) {
+                // Over file:// protocol, browser blocks toDataURL() when local images are drawn,
+                // so we display the live canvas directly so logo.png remains visible in preview!
+                latestCardDataUrl = null;
+                isCanvasTaintedByLocalFile = true;
 
-                // 9. Footer Banner
-                ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
-                ctx.lineWidth = 2;
-                ctx.beginPath();
-                ctx.moveTo(110, 1475);
-                ctx.lineTo(W - 110, 1475);
-                ctx.stroke();
+                if (previewImgEl) previewImgEl.classList.add("hidden");
+                canvas.classList.remove("hidden");
+                if (localHelperEl) localHelperEl.classList.remove("hidden");
+            }
 
-                ctx.fillStyle = "#cbd5e1";
-                ctx.font = "600 23px Inter, sans-serif";
-                ctx.textAlign = "center";
-                ctx.fillText("⚡ Politecnico di Milano • Smart Meters & Ethics Presentation Souvenir 🎄", centerX, 1520);
-
-                // Trigger Download
-                const link = document.createElement("a");
-                const safeName = generatedCardData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "student";
-                link.download = `polimi-christmas-${safeName}.png`;
-                link.href = canvas.toDataURL("image/png");
-                link.click();
-                showToast("Theme-matched HD Card downloaded!", "success");
-            };
-
-            santaImg.onerror = function() {
-                showToast("Image fallback loaded. Downloading...", "info");
-                santaImg.src = "https://images.unsplash.com/photo-1543589077-47d51606c1bf?w=600&auto=format&fit=crop&q=80";
-            };
-
-            santaImg.src = generatedCardData.santaImgSrc;
+            if (typeof onComplete === "function") {
+                onComplete();
+            }
         }
 
-        // Draw Rich Live Atmosphere Background Elements on Canvas (Pines, Reindeer, Snow, Ornaments)
-        function drawThemeAtmosphereArt(ctx, W, H, themeType) {
-            ctx.save();
-            if (themeType === "blue") {
-                // 1. Winter Wonderland: Falling Snowflakes + Snowy Pine Forest + Reindeer Silhouettes
-                ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
-                for (let i = 0; i < 60; i++) {
-                    const sx = (Math.sin(i * 123) * 0.5 + 0.5) * W;
-                    const sy = (Math.cos(i * 456) * 0.5 + 0.5) * H;
-                    const sr = (i % 4) + 2;
-                    ctx.beginPath();
-                    ctx.arc(sx, sy, sr, 0, Math.PI * 2);
-                    ctx.fill();
+        async function exportHighResCanvasCard() {
+            if (!generatedCardData) return;
+
+            const safeName = generatedCardData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "student";
+
+            if (latestCardDataUrl) {
+                const link = document.createElement("a");
+                link.download = `polimi-christmas-${safeName}.png`;
+                link.href = latestCardDataUrl;
+                link.click();
+                showToast("Downloaded exact HD preview card!", "success");
+                return;
+            }
+
+            // If opened offline via file:// and tainted by local logo.png/santa.jpg,
+            // generate an untainted HD PNG automatically so Download always works on the first click!
+            await renderUnifiedCardCanvas(() => {
+                if (latestCardDataUrl) {
+                    const link = document.createElement("a");
+                    link.download = `polimi-christmas-${safeName}.png`;
+                    link.href = latestCardDataUrl;
+                    link.click();
+                    showToast("HD Card downloaded! (Tip: Click 'Link logo.png' if you want your local logo file included offline.)", "success");
                 }
+                // Restore the live preview with local logo.png right after exporting
+                renderUnifiedCardCanvas();
+            }, true);
+        }
 
-                // Snowy Pine Trees along bottom
-                ctx.fillStyle = "rgba(2, 36, 64, 0.65)";
-                drawPineTree(ctx, 140, H - 70, 180, 260);
-                drawPineTree(ctx, W - 140, H - 70, 180, 260);
-                drawPineTree(ctx, 280, H - 60, 140, 200);
-                drawPineTree(ctx, W - 280, H - 60, 140, 200);
+        // -------------------------------------------------------------
+        // 6. LUXURY NAMEPLATE & FESTIVE ARTWORK HELPERS
+        // -------------------------------------------------------------
+        function drawLuxuryNameplateFrame(ctx, centerX, topY, width, height, studentName, deptName, theme) {
+            ctx.save();
+            const leftX = centerX - width / 2;
 
-                // Golden Reindeer Silhouettes leaping
-                drawReindeerSilhouette(ctx, 180, H - 180, 0.6, "rgba(254, 240, 138, 0.4)");
-                drawReindeerSilhouette(ctx, W - 220, H - 200, 0.7, "rgba(254, 240, 138, 0.45)");
+            const aura = ctx.createRadialGradient(centerX, topY + height / 2, 40, centerX, topY + height / 2, width * 0.6);
+            aura.addColorStop(0, "rgba(251, 191, 36, 0.22)");
+            aura.addColorStop(1, "rgba(251, 191, 36, 0)");
+            ctx.fillStyle = aura;
+            ctx.fillRect(leftX - 40, topY - 25, width + 80, height + 50);
 
-            } else if (themeType === "green") {
-                // 2. Cozy Hearth: Emerald Pine Forest + Golden Sparkles + Reindeer
-                ctx.fillStyle = "rgba(254, 240, 138, 0.12)";
+            // Ornamental Side Wings
+            ctx.strokeStyle = theme.borderColor;
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(leftX - 26, topY + height / 2);
+            ctx.lineTo(leftX - 6, topY + height / 2 - 16);
+            ctx.lineTo(leftX - 6, topY + height / 2 + 16);
+            ctx.closePath();
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(leftX + width + 26, topY + height / 2);
+            ctx.lineTo(leftX + width + 6, topY + height / 2 - 16);
+            ctx.lineTo(leftX + width + 6, topY + height / 2 + 16);
+            ctx.closePath();
+            ctx.stroke();
+
+            // Dark Velvet Plaque Fill
+            const plaqueBg = ctx.createLinearGradient(leftX, topY, leftX, topY + height);
+            plaqueBg.addColorStop(0, "rgba(10, 14, 26, 0.86)");
+            plaqueBg.addColorStop(0.5, "rgba(18, 22, 38, 0.90)");
+            plaqueBg.addColorStop(1, "rgba(8, 11, 20, 0.88)");
+            ctx.fillStyle = plaqueBg;
+            roundRect(ctx, leftX, topY, width, height, 28);
+            ctx.fill();
+
+            // Metallic Gold Rim
+            const goldRim = ctx.createLinearGradient(leftX, topY, leftX + width, topY + height);
+            goldRim.addColorStop(0, "#fef08a");
+            goldRim.addColorStop(0.3, "#f59e0b");
+            goldRim.addColorStop(0.7, "#d97706");
+            goldRim.addColorStop(1, "#fef08a");
+            ctx.strokeStyle = goldRim;
+            ctx.lineWidth = 4.5;
+            roundRect(ctx, leftX, topY, width, height, 28);
+            ctx.stroke();
+
+            // Inner Gold Trim
+            ctx.strokeStyle = "rgba(254, 240, 138, 0.35)";
+            ctx.lineWidth = 1.5;
+            roundRect(ctx, leftX + 9, topY + 9, width - 18, height - 18, 21);
+            ctx.stroke();
+
+            // 4 Corner Gold Rivets
+            const rivets = [
+                [leftX + 22, topY + 22],
+                [leftX + width - 22, topY + 22],
+                [leftX + 22, topY + height - 22],
+                [leftX + width - 22, topY + height - 22]
+            ];
+            ctx.fillStyle = "#fbbf24";
+            rivets.forEach(([rx, ry]) => {
                 ctx.beginPath();
-                ctx.arc(W * 0.5, H * 0.45, 500, 0, Math.PI * 2);
+                ctx.arc(rx, ry, 4, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Top Dedication Pill
+            const pillW = 340;
+            const pillH = 28;
+            ctx.fillStyle = "#090f1d";
+            roundRect(ctx, centerX - pillW / 2, topY - pillH / 2, pillW, pillH, 14);
+            ctx.fill();
+            ctx.strokeStyle = "#fbbf24";
+            ctx.lineWidth = 1.8;
+            ctx.stroke();
+
+            ctx.fillStyle = "#fde68a";
+            ctx.font = "bold 13px Inter, sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText("✦  CRAFTED EXCLUSIVELY FOR  ✦", centerX, topY + 5);
+
+            // Student Full Name
+            let nameFontSize = 52;
+            ctx.font = `bold ${nameFontSize}px Georgia, serif`;
+            while (ctx.measureText(studentName).width > width - 80 && nameFontSize > 30) {
+                nameFontSize -= 2;
+                ctx.font = `bold ${nameFontSize}px Georgia, serif`;
+            }
+
+            const nameGrad = ctx.createLinearGradient(0, topY + 42, 0, topY + 98);
+            nameGrad.addColorStop(0, "#ffffff");
+            nameGrad.addColorStop(0.65, "#fef9c3");
+            nameGrad.addColorStop(1, "#fde047");
+
+            ctx.shadowColor = "rgba(0, 0, 0, 0.65)";
+            ctx.shadowBlur = 10;
+            ctx.shadowOffsetY = 3;
+            ctx.fillStyle = nameGrad;
+            ctx.fillText(studentName, centerX, topY + 86);
+
+            ctx.shadowColor = "transparent";
+            ctx.shadowBlur = 0;
+            ctx.shadowOffsetY = 0;
+
+            drawOrnamentalDivider(ctx, centerX, topY + 106, width * 0.56, "rgba(251, 191, 36, 0.7)");
+
+            // Specialization
+            ctx.fillStyle = theme.accentColor;
+            ctx.font = "bold 20px Inter, sans-serif";
+            ctx.fillText(`★   ${deptName.toUpperCase()}   ★`, centerX, topY + 140);
+
+            ctx.restore();
+        }
+
+        function drawLuxuryCornerMedallion(ctx, x, y, mirrorX, mirrorY, color) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.scale(mirrorX ? -1 : 1, mirrorY ? -1 : 1);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2.8;
+            ctx.beginPath();
+            ctx.arc(0, 0, 24, 0, Math.PI * 0.5);
+            ctx.stroke();
+
+            ctx.fillStyle = "#fef08a";
+            ctx.beginPath();
+            ctx.arc(8, 8, 4, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawGoldFoilSeal(ctx, cx, cy, radius) {
+            ctx.save();
+            const spikes = 18;
+            ctx.beginPath();
+            for (let i = 0; i < spikes * 2; i++) {
+                const r = i % 2 === 0 ? radius : radius - 5;
+                const angle = (i * Math.PI) / spikes;
+                const sx = cx + Math.cos(angle) * r;
+                const sy = cy + Math.sin(angle) * r;
+                if (i === 0) ctx.moveTo(sx, sy);
+                else ctx.lineTo(sx, sy);
+            }
+            ctx.closePath();
+
+            const sealGrad = ctx.createLinearGradient(cx - radius, cy - radius, cx + radius, cy + radius);
+            sealGrad.addColorStop(0, "#fef08a");
+            sealGrad.addColorStop(0.5, "#f59e0b");
+            sealGrad.addColorStop(1, "#b45309");
+            ctx.fillStyle = sealGrad;
+            ctx.fill();
+
+            ctx.strokeStyle = "#78350f";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(cx, cy, radius - 11, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = "#451a03";
+            ctx.font = "bold 12px Georgia, serif";
+            ctx.textAlign = "center";
+            ctx.fillText("POLIMI", cx, cy - 2);
+            ctx.font = "bold 10px Inter, sans-serif";
+            ctx.fillText("2027", cx, cy + 12);
+            ctx.restore();
+        }
+
+        function drawVectorUniversityCrest(ctx, cx, cy, r = 34) {
+            ctx.save();
+            ctx.fillStyle = "#002B49";
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.strokeStyle = "#f59e0b";
+            ctx.lineWidth = 2.2;
+            ctx.beginPath();
+            ctx.arc(cx, cy, r - 3.5, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.fillStyle = "#fbbf24";
+            ctx.beginPath();
+            for (let i = 0; i < 8; i++) {
+                const rad = i % 2 === 0 ? 8 : 3.2;
+                const ang = (i * Math.PI) / 4 - Math.PI / 2;
+                const px = cx + Math.cos(ang) * rad;
+                const py = cy - 9 + Math.sin(ang) * rad;
+                if (i === 0) ctx.moveTo(px, py);
+                else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = "#ffffff";
+            ctx.font = "bold 11px Georgia, serif";
+            ctx.textAlign = "center";
+            ctx.fillText("POLIMI", cx, cy + 7);
+
+            ctx.fillStyle = "#fde68a";
+            ctx.font = "bold 7px Inter, sans-serif";
+            ctx.fillText("1863", cx, cy + 16);
+            ctx.restore();
+        }
+
+        function drawOrnamentalDivider(ctx, cx, y, width, color) {
+            ctx.save();
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(cx - width / 2, y);
+            ctx.lineTo(cx - 24, y);
+            ctx.moveTo(cx + 24, y);
+            ctx.lineTo(cx + width / 2, y);
+            ctx.stroke();
+
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            ctx.moveTo(cx, y - 8);
+            ctx.lineTo(cx + 10, y);
+            ctx.lineTo(cx, y + 8);
+            ctx.lineTo(cx - 10, y);
+            ctx.closePath();
+            ctx.fill();
+            ctx.restore();
+        }
+
+        function drawVectorSantaAvatar(ctx, x, y, w, h, gender) {
+            ctx.save();
+            const cx = x + w / 2;
+            const cy = y + h / 2;
+
+            const bg = ctx.createRadialGradient(cx, cy - 30, 30, cx, cy, w * 0.72);
+            bg.addColorStop(0, "#1e3a5f");
+            bg.addColorStop(1, "#091326");
+            ctx.fillStyle = bg;
+            ctx.fillRect(x, y, w, h);
+
+            ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+            for (let i = 0; i < 24; i++) {
+                const sx = x + ((i * 73) % w);
+                const sy = y + ((i * 137) % h);
+                ctx.beginPath();
+                ctx.arc(sx, sy, (i % 3) + 1.5, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Red Velvet Coat
+            ctx.fillStyle = "#dc2626";
+            ctx.beginPath();
+            ctx.ellipse(cx, y + h + 15, 165, 130, 0, Math.PI, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = "#f8fafc";
+            ctx.fillRect(cx - 22, y + h - 110, 44, 120);
+            ctx.beginPath();
+            ctx.ellipse(cx, y + h - 105, 105, 28, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Face
+            ctx.fillStyle = "#fed7aa";
+            ctx.beginPath();
+            ctx.arc(cx, cy + 12, 76, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = "rgba(244, 63, 94, 0.35)";
+            ctx.beginPath();
+            ctx.arc(cx - 42, cy + 24, 16, 0, Math.PI * 2);
+            ctx.arc(cx + 42, cy + 24, 16, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Glasses & Eyes
+            ctx.strokeStyle = "#fbbf24";
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.arc(cx - 28, cy + 2, 16, 0, Math.PI * 2);
+            ctx.arc(cx + 28, cy + 2, 16, 0, Math.PI * 2);
+            ctx.moveTo(cx - 12, cy + 2);
+            ctx.lineTo(cx + 12, cy + 2);
+            ctx.stroke();
+
+            ctx.fillStyle = "#1e293b";
+            ctx.beginPath();
+            ctx.arc(cx - 28, cy + 2, 5, 0, Math.PI * 2);
+            ctx.arc(cx + 28, cy + 2, 5, 0, Math.PI * 2);
+            ctx.fill();
+
+            if (gender === "female") {
+                ctx.fillStyle = "#f1f5f9";
+                ctx.beginPath();
+                ctx.arc(cx, cy - 82, 34, 0, Math.PI * 2);
+                ctx.arc(cx - 68, cy - 10, 26, 0, Math.PI * 2);
+                ctx.arc(cx + 68, cy - 10, 26, 0, Math.PI * 2);
                 ctx.fill();
 
-                // Layered Evergreen Pine Trees
-                ctx.fillStyle = "rgba(2, 44, 34, 0.75)";
-                drawPineTree(ctx, 160, H - 70, 200, 300);
-                drawPineTree(ctx, W - 160, H - 70, 200, 300);
-                drawPineTree(ctx, 320, H - 60, 150, 220);
-                drawPineTree(ctx, W - 320, H - 60, 150, 220);
+                ctx.strokeStyle = "#be123c";
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.arc(cx, cy + 28, 22, 0.15 * Math.PI, 0.85 * Math.PI);
+                ctx.stroke();
+            } else {
+                ctx.fillStyle = "#ffffff";
+                ctx.beginPath();
+                ctx.moveTo(cx - 76, cy + 16);
+                ctx.quadraticCurveTo(cx - 88, cy + 135, cx, cy + 148);
+                ctx.quadraticCurveTo(cx + 88, cy + 135, cx + 76, cy + 16);
+                ctx.closePath();
+                ctx.fill();
 
-                // Reindeer Silhouettes
-                drawReindeerSilhouette(ctx, W - 200, H - 210, 0.75, "rgba(52, 211, 153, 0.45)");
+                ctx.fillStyle = "#f1f5f9";
+                ctx.beginPath();
+                ctx.ellipse(cx - 24, cy + 34, 28, 12, -0.15, 0, Math.PI * 2);
+                ctx.ellipse(cx + 24, cy + 34, 28, 12, 0.15, 0, Math.PI * 2);
+                ctx.fill();
+            }
 
-            } else if (themeType === "red") {
-                // 3. Festive Jubilee: Hanging Golden Baubles & Holly Ornaments + Reindeer
-                ctx.fillStyle = "rgba(251, 191, 36, 0.15)";
-                for (let i = 0; i < 14; i++) {
-                    const bx = (i * 90) + 50;
+            // Santa Hat
+            ctx.fillStyle = "#dc2626";
+            ctx.beginPath();
+            ctx.moveTo(cx - 82, cy - 42);
+            ctx.quadraticCurveTo(cx, cy - 165, cx + 108, cy - 75);
+            ctx.lineTo(cx + 76, cy - 38);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = "#ffffff";
+            roundRect(ctx, cx - 88, cy - 56, 176, 30, 15);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(cx + 112, cy - 72, 20, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.restore();
+        }
+
+        function drawFestiveSnowman(ctx, x, y, scale = 1) {
+            ctx.save();
+            ctx.translate(x, y);
+            ctx.scale(scale, scale);
+
+            ctx.fillStyle = "#f8fafc";
+            ctx.beginPath();
+            ctx.arc(0, 0, 34, 0, Math.PI * 2);
+            ctx.arc(0, -44, 25, 0, Math.PI * 2);
+            ctx.arc(0, -80, 18, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = "#e11d48";
+            roundRect(ctx, -20, -64, 40, 10, 5);
+            ctx.fill();
+            roundRect(ctx, 6, -60, 10, 26, 4);
+            ctx.fill();
+
+            ctx.fillStyle = "#0f172a";
+            ctx.beginPath();
+            ctx.arc(-6, -84, 2.5, 0, Math.PI * 2);
+            ctx.arc(6, -84, 2.5, 0, Math.PI * 2);
+            ctx.arc(0, -46, 3, 0, Math.PI * 2);
+            ctx.arc(0, -34, 3, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.fillStyle = "#f97316";
+            ctx.beginPath();
+            ctx.moveTo(0, -79);
+            ctx.lineTo(16, -76);
+            ctx.lineTo(0, -73);
+            ctx.closePath();
+            ctx.fill();
+
+            ctx.fillStyle = "#1e293b";
+            ctx.fillRect(-18, -100, 36, 5);
+            ctx.fillRect(-12, -120, 24, 20);
+            ctx.fillStyle = "#fbbf24";
+            ctx.fillRect(-12, -104, 24, 4);
+
+            ctx.restore();
+        }
+
+        function drawBottomHolidayScene(ctx, W, H) {
+            ctx.save();
+            ctx.fillStyle = "rgba(255, 255, 255, 0.08)";
+            ctx.beginPath();
+            ctx.moveTo(45, H - 115);
+            ctx.quadraticCurveTo(W * 0.3, H - 170, W * 0.6, H - 125);
+            ctx.quadraticCurveTo(W * 0.85, H - 165, W - 45, H - 115);
+            ctx.lineTo(W - 45, H - 45);
+            ctx.lineTo(45, H - 45);
+            ctx.closePath();
+            ctx.fill();
+
+            drawDecoratedPineTree(ctx, 130, H - 115, 110, 175);
+            drawDecoratedPineTree(ctx, W - 130, H - 115, 110, 175);
+            ctx.restore();
+        }
+
+        function drawDecoratedPineTree(ctx, x, y, width, height) {
+            ctx.save();
+            ctx.fillStyle = "rgba(6, 78, 59, 0.85)";
+            for (let tier = 0; tier < 3; tier++) {
+                const tierY = y - tier * (height * 0.26);
+                const tierW = width * (1 - tier * 0.22);
+                const tierH = height * 0.48;
+                ctx.beginPath();
+                ctx.moveTo(x, tierY - tierH);
+                ctx.lineTo(x - tierW / 2, tierY);
+                ctx.lineTo(x + tierW / 2, tierY);
+                ctx.closePath();
+                ctx.fill();
+            }
+            ctx.fillStyle = "#fbbf24";
+            ctx.font = "bold 22px sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText("★", x, y - height + 8);
+            ctx.restore();
+        }
+
+        function drawThemeAtmosphereArt(ctx, W, H, themeType) {
+            ctx.save();
+            for (let i = 0; i < 36; i++) {
+                const sx = (Math.sin(i * 91.7) * 0.5 + 0.5) * (W - 140) + 70;
+                const sy = (Math.cos(i * 47.3) * 0.5 + 0.5) * (H - 180) + 80;
+                const sr = (i % 3) + 1.5;
+                ctx.fillStyle = i % 3 === 0 ? "rgba(254, 240, 138, 0.45)" : "rgba(255, 255, 255, 0.3)";
+                ctx.beginPath();
+                ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            if (themeType === "blue") {
+                ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
+                for (let i = 0; i < 40; i++) {
+                    const sx = (Math.sin(i * 123) * 0.5 + 0.5) * W;
+                    const sy = (Math.cos(i * 456) * 0.5 + 0.5) * H;
                     ctx.beginPath();
-                    ctx.arc(bx, 100 + Math.sin(i) * 25, 20, 0, Math.PI * 2);
+                    ctx.arc(sx, sy, (i % 3) + 2, 0, Math.PI * 2);
                     ctx.fill();
-                    ctx.strokeStyle = "rgba(251, 191, 36, 0.35)";
+                }
+            } else if (themeType === "red") {
+                for (let i = 0; i < 11; i++) {
+                    const bx = 120 + i * 96;
+                    const drop = 42 + (i % 3) * 18;
+                    ctx.strokeStyle = "rgba(251, 191, 36, 0.32)";
                     ctx.lineWidth = 2;
                     ctx.beginPath();
                     ctx.moveTo(bx, 45);
-                    ctx.lineTo(bx, 80);
+                    ctx.lineTo(bx, 45 + drop);
                     ctx.stroke();
+
+                    ctx.fillStyle = i % 2 === 0 ? "rgba(251, 191, 36, 0.22)" : "rgba(244, 63, 94, 0.26)";
+                    ctx.beginPath();
+                    ctx.arc(bx, 45 + drop + 14, 14, 0, Math.PI * 2);
+                    ctx.fill();
                 }
-
-                // Pine Trees & Reindeer on Red Canvas
-                ctx.fillStyle = "rgba(74, 4, 9, 0.7)";
-                drawPineTree(ctx, 140, H - 70, 180, 250);
-                drawPineTree(ctx, W - 140, H - 70, 180, 250);
-                drawReindeerSilhouette(ctx, 190, H - 190, 0.65, "rgba(251, 191, 36, 0.4)");
-
             } else if (themeType === "gold") {
-                // 4. Imperial Glow: Golden Bokeh + Stars + Reindeer
-                for (let i = 0; i < 40; i++) {
+                for (let i = 0; i < 28; i++) {
                     const bx = (Math.sin(i * 3.4) * 0.5 + 0.5) * W;
                     const by = (Math.cos(i * 2.1) * 0.5 + 0.5) * H;
-                    const br = ((i % 8) + 3) * 7;
-                    ctx.fillStyle = i % 2 === 0 ? "rgba(254, 240, 138, 0.08)" : "rgba(245, 158, 11, 0.12)";
+                    const br = ((i % 6) + 3) * 8;
+                    ctx.fillStyle = i % 2 === 0 ? "rgba(254, 240, 138, 0.08)" : "rgba(245, 158, 11, 0.11)";
                     ctx.beginPath();
                     ctx.arc(bx, by, br, 0, Math.PI * 2);
                     ctx.fill();
                 }
-
-                drawReindeerSilhouette(ctx, W - 230, H - 200, 0.75, "rgba(254, 240, 138, 0.5)");
             }
-            ctx.restore();
-        }
-
-        // Draw Majestic Reindeer Silhouette Path
-        function drawReindeerSilhouette(ctx, x, y, scale, color) {
-            ctx.save();
-            ctx.translate(x, y);
-            ctx.scale(scale, scale);
-            ctx.fillStyle = color;
-
-            ctx.beginPath();
-            // Reindeer body & head path
-            ctx.arc(0, 0, 18, 0, Math.PI * 2); // Body core
-            ctx.ellipse(22, -22, 10, 14, Math.PI / 4, 0, Math.PI * 2); // Neck & Head
-            ctx.fill();
-
-            // Antlers
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(26, -32);
-            ctx.lineTo(34, -48);
-            ctx.lineTo(42, -56);
-            ctx.moveTo(34, -48);
-            ctx.lineTo(26, -54);
-            ctx.moveTo(28, -36);
-            ctx.lineTo(18, -48);
-            ctx.stroke();
-
-            // Legs
-            ctx.beginPath();
-            ctx.moveTo(-8, 12); ctx.lineTo(-14, 40);
-            ctx.moveTo(8, 12); ctx.lineTo(12, 42);
-            ctx.stroke();
-
-            ctx.restore();
-        }
-
-        function drawPineTree(ctx, x, y, width, height) {
-            ctx.beginPath();
-            ctx.moveTo(x, y - height);
-            ctx.lineTo(x - width/2, y);
-            ctx.lineTo(x + width/2, y);
-            ctx.closePath();
-            ctx.fill();
-        }
-
-        function drawCornerFlourish(ctx, x, y, mirror = false, color = "#fbbf24") {
-            ctx.save();
-            ctx.translate(x, y);
-            if (mirror) ctx.scale(-1, 1);
-            ctx.strokeStyle = color;
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.arc(0, 0, 22, 0, Math.PI * 0.5);
-            ctx.stroke();
             ctx.restore();
         }
 
@@ -1420,33 +1940,55 @@
             ctx.closePath();
         }
 
-        function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
-            const words = text.split(" ");
-            let line = "";
-            let currentY = y;
-
-            for (let n = 0; n < words.length; n++) {
-                const testLine = line + words[n] + " ";
-                const metrics = ctx.measureText(testLine);
-                if (metrics.width > maxWidth && n > 0) {
-                    ctx.fillText(line.trim(), x, currentY);
-                    line = words[n] + " ";
-                    currentY += lineHeight;
-                } else {
-                    line = testLine;
-                }
-            }
-            ctx.fillText(line.trim(), x, currentY);
-        }
-
         // -------------------------------------------------------------
-        // 5. EVENT LISTENERS INITIALIZATION
+        // 7. EVENT LISTENERS INITIALIZATION
         // -------------------------------------------------------------
         window.addEventListener("DOMContentLoaded", () => {
             initSnowflakes();
             renderSlide();
             renderReferences();
             updateAssignedWishDisplay();
+
+            // Photo Upload Dropzone & File Input Listeners
+            const photoInput = document.getElementById("student-photo");
+            const dropzone = document.getElementById("photo-upload-dropzone");
+
+            dropzone.addEventListener("click", () => photoInput.click());
+            document.getElementById("change-photo-btn").addEventListener("click", () => photoInput.click());
+            document.getElementById("remove-photo-btn").addEventListener("click", clearUploadedPhoto);
+
+            photoInput.addEventListener("change", (e) => {
+                if (e.target.files && e.target.files[0]) {
+                    processUploadedPhoto(e.target.files[0]);
+                }
+            });
+
+            dropzone.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropzone.classList.add("border-amber-400", "bg-slate-900");
+            });
+            dropzone.addEventListener("dragleave", () => {
+                dropzone.classList.remove("border-amber-400", "bg-slate-900");
+            });
+            dropzone.addEventListener("drop", (e) => {
+                e.preventDefault();
+                dropzone.classList.remove("border-amber-400", "bg-slate-900");
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    processUploadedPhoto(e.dataTransfer.files[0]);
+                }
+            });
+
+            // Gender Radio Live Switch
+            document.querySelectorAll('input[name="gender"]').forEach(radio => {
+                radio.addEventListener("change", (e) => {
+                    if (generatedCardData && !uploadedPhotoDataUrl) {
+                        const defaultSrc = e.target.value === "female" ? "santa_female.jpg" : "santa_male.jpg";
+                        generatedCardData.gender = e.target.value;
+                        generatedCardData.santaImgSrc = defaultSrc;
+                        renderUnifiedCardCanvas();
+                    }
+                });
+            });
 
             // Department quick select chips
             document.querySelectorAll(".dept-chip").forEach(chip => {
@@ -1459,13 +2001,20 @@
             document.getElementById("shuffle-wish-btn").addEventListener("click", () => {
                 assignedWishIndex = (assignedWishIndex + 1) % festiveWishes25.length;
                 updateAssignedWishDisplay();
+                if (generatedCardData) {
+                    generatedCardData.wishText = festiveWishes25[assignedWishIndex];
+                    renderUnifiedCardCanvas();
+                }
                 showToast("Assigned Christmas greeting updated!", "info");
             });
 
             // Theme switch radio update live preview
             document.querySelectorAll('input[name="card-theme"]').forEach(radio => {
                 radio.addEventListener("change", (e) => {
-                    applyThemeToCardPreview(e.target.value);
+                    if (generatedCardData) {
+                        generatedCardData.themeKey = e.target.value;
+                        renderUnifiedCardCanvas();
+                    }
                 });
             });
 
@@ -1474,6 +2023,26 @@
 
             // Download Card Button
             document.getElementById("download-card-btn").addEventListener("click", exportHighResCanvasCard);
+
+            // Local file:// Logo Linker
+            const linkLogoBtn = document.getElementById("link-local-logo-btn");
+            const manualLogoInput = document.getElementById("manual-logo-input");
+            if (linkLogoBtn && manualLogoInput) {
+                linkLogoBtn.addEventListener("click", () => manualLogoInput.click());
+                manualLogoInput.addEventListener("change", (e) => {
+                    const file = e.target.files && e.target.files[0];
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        customLogoDataUrl = ev.target.result;
+                        showToast("logo.png linked! You can now download the HD card.", "success");
+                        if (generatedCardData) {
+                            renderUnifiedCardCanvas();
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
 
             // Copy Wish Button
             document.getElementById("copy-wish-btn").addEventListener("click", () => {
