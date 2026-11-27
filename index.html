@@ -477,10 +477,16 @@
                             
                             <!-- Unified Live Preview Container -->
                             <div class="relative max-w-[460px] mx-auto rounded-3xl overflow-hidden shadow-2xl border border-amber-400/40 bg-slate-950">
-                                <img id="live-card-preview-img" src="" alt="Your Personalized Politecnico di Milano Holiday Souvenir Card" class="w-full h-auto block select-none">
+                                <img id="live-card-preview-img" src="" alt="Your Personalized Politecnico di Milano Holiday Souvenir Card" class="w-full h-auto block">
                                 <!-- Canvas shown directly if local file:// security prevents toDataURL() while keeping logo.png visible -->
                                 <canvas id="card-export-canvas" class="hidden w-full h-auto block"></canvas>
                             </div>
+
+                            <!-- Mobile Long-Press Save Tip -->
+                            <p class="sm:hidden text-center text-[11px] text-slate-400 max-w-[460px] mx-auto">
+                                <i class="fa-solid fa-hand-pointer text-amber-400 mr-1"></i>
+                                Tip: Use the buttons below or press &amp; hold the card image to save it to your gallery.
+                            </p>
 
                             <!-- Optional Helper Banner for Offline file:// Browser Mode -->
                             <div id="local-file-helper" class="hidden max-w-[460px] mx-auto rounded-2xl bg-amber-500/10 border border-amber-400/30 p-3 flex items-center justify-between gap-3 text-xs text-amber-200">
@@ -490,19 +496,19 @@
                                 </span>
                                 <input type="file" id="manual-logo-input" accept="image/*" class="hidden">
                                 <button type="button" id="link-local-logo-btn" class="shrink-0 px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition-colors">
-                                    Link logo.png
-                                </button>
-                            </div>
-
-                            <!-- Download Action Bar -->
+                            <!-- Download & Mobile Share Action Bar -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-[460px] mx-auto">
                                 <button type="button" id="download-card-btn"
                                     class="py-3.5 px-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm shadow-lg shadow-emerald-900/30 flex items-center justify-center gap-2 transition-all">
                                     <i class="fa-solid fa-download"></i> Download HD Card (PNG)
                                 </button>
+                                <button type="button" id="share-card-btn"
+                                    class="py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-900/30 flex items-center justify-center gap-2 transition-all">
+                                    <i class="fa-solid fa-share-nodes"></i> Share / Save to Photos
+                                </button>
                                 <button type="button" id="copy-wish-btn"
-                                    class="py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-white/10 flex items-center justify-center gap-2 transition-all">
-                                    <i class="fa-regular fa-copy"></i> Copy Greeting & Motto
+                                    class="sm:col-span-2 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-sm border border-white/10 flex items-center justify-center gap-2 transition-all">
+                                    <i class="fa-regular fa-copy"></i> Copy Greeting &amp; Motto
                                 </button>
                             </div>
 
@@ -1534,33 +1540,110 @@
             }
         }
 
+        // Convert Data URL to Blob synchronously so mobile browsers (iOS Safari / Android Chrome)
+        // never block the download or share gesture due to async delays
+        function dataURLToBlob(dataUrl) {
+            const parts = dataUrl.split(",");
+            const mimeMatch = parts[0].match(/:(.*?);/);
+            const mime = mimeMatch ? mimeMatch[1] : "image/png";
+            const binary = atob(parts[1]);
+            const len = binary.length;
+            const buffer = new Uint8Array(len);
+            for (let i = 0; i < len; i++) {
+                buffer[i] = binary.charCodeAt(i);
+            }
+            return new Blob([buffer], { type: mime });
+        }
+
+        function triggerMobileFriendlyDownload(blob, filename) {
+            const blobUrl = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.style.display = "none";
+            link.href = blobUrl;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+
+            setTimeout(() => {
+                if (link.parentNode) {
+                    document.body.removeChild(link);
+                }
+                URL.revokeObjectURL(blobUrl);
+            }, 3000);
+        }
+
         async function exportHighResCanvasCard() {
             if (!generatedCardData) return;
 
             const safeName = generatedCardData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "student";
+            const filename = `polimi-christmas-${safeName}.png`;
 
             if (latestCardDataUrl) {
-                const link = document.createElement("a");
-                link.download = `polimi-christmas-${safeName}.png`;
-                link.href = latestCardDataUrl;
-                link.click();
-                showToast("Downloaded exact HD preview card!", "success");
-                return;
+                try {
+                    const blob = dataURLToBlob(latestCardDataUrl);
+                    triggerMobileFriendlyDownload(blob, filename);
+                    showToast("Downloading HD souvenir card...", "success");
+                    return;
+                } catch (_) {
+                    // Fallback to direct data URL anchor attached to DOM
+                    const link = document.createElement("a");
+                    link.style.display = "none";
+                    link.download = filename;
+                    link.href = latestCardDataUrl;
+                    document.body.appendChild(link);
+                    link.click();
+                    setTimeout(() => link.remove(), 2000);
+                    showToast("Downloaded exact HD preview card!", "success");
+                    return;
+                }
             }
 
             // If opened offline via file:// and tainted by local logo.png/santa.jpg,
-            // generate an untainted HD PNG automatically so Download always works on the first click!
+            // generate an untainted HD PNG automatically so Download always works
             await renderUnifiedCardCanvas(() => {
                 if (latestCardDataUrl) {
-                    const link = document.createElement("a");
-                    link.download = `polimi-christmas-${safeName}.png`;
-                    link.href = latestCardDataUrl;
-                    link.click();
-                    showToast("HD Card downloaded! (Tip: Click 'Link logo.png' if you want your local logo file included offline.)", "success");
+                    const blob = dataURLToBlob(latestCardDataUrl);
+                    triggerMobileFriendlyDownload(blob, filename);
+                    showToast("HD Card downloaded! (Tip: Click 'Link logo.png' to include your local logo offline.)", "success");
                 }
                 // Restore the live preview with local logo.png right after exporting
                 renderUnifiedCardCanvas();
             }, true);
+        }
+
+        async function shareHighResCanvasCard() {
+            if (!generatedCardData) return;
+
+            const safeName = generatedCardData.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") || "student";
+            const filename = `polimi-christmas-${safeName}.png`;
+
+            if (!latestCardDataUrl) {
+                await exportHighResCanvasCard();
+                return;
+            }
+
+            try {
+                const blob = dataURLToBlob(latestCardDataUrl);
+                const file = new File([blob], filename, { type: "image/png" });
+
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    await navigator.share({
+                        files: [file],
+                        title: "Politecnico di Milano Holiday Card",
+                        text: `Holiday Souvenir Card for ${generatedCardData.name} — Politecnico di Milano 🎄`
+                    });
+                    showToast("Shared / saved successfully!", "success");
+                    return;
+                }
+            } catch (err) {
+                if (err && err.name === "AbortError") {
+                    return;
+                }
+            }
+
+            // Fallback if browser doesn't support file sharing
+            exportHighResCanvasCard();
+            showToast("Card downloaded! On mobile, you can also press & hold the image to save it.", "info");
         }
 
         // -------------------------------------------------------------
@@ -2130,6 +2213,12 @@
 
             // Download Card Button
             document.getElementById("download-card-btn").addEventListener("click", exportHighResCanvasCard);
+
+            // Share / Save to Photos Button (Mobile & Desktop)
+            const shareCardBtn = document.getElementById("share-card-btn");
+            if (shareCardBtn) {
+                shareCardBtn.addEventListener("click", shareHighResCanvasCard);
+            }
 
             // Local file:// Logo Linker
             const linkLogoBtn = document.getElementById("link-local-logo-btn");
