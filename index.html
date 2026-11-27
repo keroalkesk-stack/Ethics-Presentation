@@ -496,6 +496,10 @@
                                 </span>
                                 <input type="file" id="manual-logo-input" accept="image/*" class="hidden">
                                 <button type="button" id="link-local-logo-btn" class="shrink-0 px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold transition-colors">
+                                    Link logo.png
+                                </button>
+                            </div>
+
                             <!-- Download & Mobile Share Action Bar -->
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-[460px] mx-auto">
                                 <button type="button" id="download-card-btn"
@@ -1569,7 +1573,7 @@
                     document.body.removeChild(link);
                 }
                 URL.revokeObjectURL(blobUrl);
-            }, 3000);
+            }, 60000);
         }
 
         async function exportHighResCanvasCard() {
